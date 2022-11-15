@@ -46,14 +46,26 @@ function App() {
       },
     });
 
-    if (data.videos && data.videos.results) {
-      const trailer = data.videos.results.find(
-        // cuando encontremos un campo que se llame official trailer lo guarde
-        (vid) => vid.name === "Official Trailer"
-      );
-      setTrailer(trailer ? trailer : data.videos.results[0]);
-    }
+    // if (data.videos && data.videos.results) {
+    //   const trailer = data.videos.results.find(
+    //     // cuando encontremos un campo que se llame official trailer lo guarde
+    //     (vid) => vid.name === "Official Trailer"
+    //   );
+    //   setTrailer(trailer ? trailer : data.videos.results[0]);
+    // }
+    fetchTrailer(data.id);
     setMovie(data);
+  };
+
+  //Peticion para el trailer
+  const fetchTrailer = async (id) => {
+    const { data } = await axios.get(
+      `${API_URL}/movie/${id}/videos?api_key=${API_KEY}&language=en-US`
+    );
+    const trailerData = data.results.find(
+      (video) => video.name === "Official Trailer"
+    );
+    setTrailer(trailerData);
   };
 
   const selectMovie = async (movie) => {
