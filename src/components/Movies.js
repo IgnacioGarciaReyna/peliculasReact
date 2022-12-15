@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import Movie from "./Movie";
 
 const Movies = ({ movies, selectMovie, URL_IMAGE }) => {
   return (
@@ -7,17 +8,7 @@ const Movies = ({ movies, selectMovie, URL_IMAGE }) => {
       <div className="container mt-3">
         <div className="row">
           {movies.map((movie) => (
-            <div
-              key={movie.id}
-              className="col-md-2 mb-3 img-movie-container"
-              onClick={() => selectMovie(movie)}
-            >
-              <img
-                className="img-movie"
-                src={`${URL_IMAGE + movie.poster_path}`}
-              />
-              <h4 className="text-center">{movie.title}</h4>
-            </div>
+            <Movie movie={movie} selectMovie={selectMovie} URL_IMAGE={URL_IMAGE}/>
           ))}
         </div>
       </div>
