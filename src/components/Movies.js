@@ -4,7 +4,6 @@ import Movie from "./Movie";
 const Movies = ({ movies, selectMovie, URL_IMAGE }) => {
   return (
     <Fragment>
-      {/* Contenedor de poster de peliculas actuales */}
       <div className="container mt-3">
         <div className="row">
           {movies.map((movie) => (
