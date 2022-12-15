@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import YouTube from "react-youtube";
+import Nav from "./components/Nav";
 
 function App() {
   const API_URL = "https://api.themoviedb.org/3";
@@ -10,7 +11,6 @@ function App() {
 
   //Variables de estado
   const [movies, setMovies] = useState([]);
-  const [searchKey, setSearchKey] = useState("");
   const [trailer, setTrailer] = useState(null);
   const [movie, setMovie] = useState({ title: "Loading Movies" });
   const [playing, setPlaying] = useState(false);
@@ -70,28 +70,13 @@ function App() {
     window.scrollTo(0, 0);
   };
 
-  //Busqueda de películas
-  const searchMovies = (e) => {
-    e.preventDefault();
-    fetchMovies(searchKey);
-  };
-
   useEffect(() => {
     fetchMovies();
   }, []);
 
   return (
     <div>
-      <h2 className="text-center mt-5 mb-5">Trailer Movies</h2>
-      {/* Buscador */}
-      <form className="container mb-4" onSubmit={searchMovies}>
-        <input
-          type="text"
-          placeholder="search"
-          onChange={(e) => setSearchKey(e.target.value)}
-        />
-        <button className="btn btn-primary">Search</button>
-      </form>
+      <Nav fetchMovies={fetchMovies}/>
       {/* Contenedor del banner y reproductor de video*/}
       <div>
         <main>
