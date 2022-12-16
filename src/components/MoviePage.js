@@ -1,43 +1,11 @@
 import React, { Fragment, useState } from "react";
 import YouTube from "react-youtube";
 
-const MoviePage = ({movie, setMovie}) => {
-  const [trailer, setTrailer] = useState(null);
-  
+const MoviePage = ({ movie, IMAGE_PATH, trailer }) => {
   const [playing, setPlaying] = useState(false);
-
-  const IMAGE_PATH = "https://image.tmdb.org/t/p/original";
-
-  //Petición de un solo objeto para mostrar en reproductor de video
-  // const fetchMovie = async (id) => {
-  //   const { data } = await axios.get(`${API_URL}/movie/${id}`, {
-  //     params: {
-  //       api_key: API_KEY,
-  //       append_to_response: "video",
-  //     },
-  //   });
-
-  //   fetchTrailer(data.id);
-  //   setMovie(data);
-  // };
-
-  // //Peticion para el trailer
-  // const fetchTrailer = async (id) => {
-  //   const { data } = await axios.get(`${API_URL}/movie/${id}/videos?`, {
-  //     params: {
-  //       api_key: API_KEY,
-  //       language: "en-US",
-  //     },
-  //   });
-  //   const trailerData = data.results.find(
-  //     (video) => video.name === "Official Trailer"
-  //   );
-  //   setTrailer(trailerData ? trailerData : data.results[0]);
-  // };
 
   return (
     <Fragment>
-      {/* Contenedor del banner y reproductor de video*/}
       <div>
         <main>
           {movie ? (

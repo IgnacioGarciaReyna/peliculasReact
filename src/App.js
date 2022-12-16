@@ -16,6 +16,37 @@ function App() {
 
   const [movies, setMovies] = useState([]);
 
+  const [trailer, setTrailer] = useState(null);
+
+  const IMAGE_PATH = "https://image.tmdb.org/t/p/original";
+
+  //Petición de un solo objeto para mostrar en reproductor de video
+  const fetchMovie = async (id) => {
+    const { data } = await axios.get(`${API_URL}/movie/${id}`, {
+      params: {
+        api_key: API_KEY,
+        append_to_response: "video",
+      },
+    });
+
+    fetchTrailer(data.id);
+    setMovie(data);
+  };
+
+  // //Peticion para el trailer
+  const fetchTrailer = async (id) => {
+    const { data } = await axios.get(`${API_URL}/movie/${id}/videos?`, {
+      params: {
+        api_key: API_KEY,
+        language: "en-US",
+      },
+    });
+    const trailerData = data.results.find(
+      (video) => video.name === "Official Trailer"
+    );
+    setTrailer(trailerData ? trailerData : data.results[0]);
+  };
+
   //Petición a la API
   const fetchMovies = async (searchKey) => {
     //Si no hay busqueda, que muestre "descubrir"
@@ -30,12 +61,6 @@ function App() {
     });
 
     setMovies(results);
-    // setMovie(results[0]);
-
-    //Mostrar algo por defecto para evitar un error
-    // if (results.length) {
-    //   await fetchMovie(results[0].id);
-    // }
   };
 
   useEffect(() => {
@@ -43,7 +68,7 @@ function App() {
   }, []);
 
   const selectMovie = async (movie) => {
-    // fetchMovie(movie.id);
+    fetchMovie(movie.id);
     setMovie(movie);
     // window.scrollTo(0, 0);
   };
@@ -53,7 +78,7 @@ function App() {
       <Routes>
         <Route
           path="/movie/:id"
-          element={<MoviePage movie={movie} />}
+          element={<MoviePage movie={movie} IMAGE_PATH={IMAGE_PATH} trailer={trailer}/>}
         />
         <Route
           path="/"
