@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import YouTube from "react-youtube";
 import Nav from "./components/Nav";
 import Movies from "./components/Movies";
 import MoviePage from "./components/MoviePage";
@@ -67,29 +66,32 @@ function App() {
     fetchMovies();
   }, []);
 
-  const selectMovie = async (movie) => {
-    fetchMovie(movie.id);
-    setMovie(movie);
-    // window.scrollTo(0, 0);
-  };
-
   return (
     <Router>
       <Routes>
         <Route
           path="/movie/:id"
-          element={<MoviePage movie={movie} IMAGE_PATH={IMAGE_PATH} trailer={trailer}/>}
+          element={
+            <div>
+              <MoviePage
+                movie={movie}
+                fetchMovie={fetchMovie}
+                IMAGE_PATH={IMAGE_PATH}
+                trailer={trailer}
+                API_KEY={API_KEY}
+                API_URL={API_URL}
+                setMovies={setMovies}
+              />
+              <Movies movies={movies} URL_IMAGE={URL_IMAGE}/>
+            </div>
+          }
         />
         <Route
           path="/"
           element={
             <div>
               <Nav fetchMovies={fetchMovies} />
-              <Movies
-                movies={movies}
-                selectMovie={selectMovie}
-                URL_IMAGE={URL_IMAGE}
-              />
+              <Movies movies={movies} URL_IMAGE={URL_IMAGE} />
             </div>
           }
         />

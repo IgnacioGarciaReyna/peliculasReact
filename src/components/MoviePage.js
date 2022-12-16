@@ -1,8 +1,37 @@
+import axios from "axios";
 import React, { Fragment, useState } from "react";
+import { useParams } from "react-router-dom";
 import YouTube from "react-youtube";
 
-const MoviePage = ({ movie, IMAGE_PATH, trailer }) => {
+const MoviePage = ({
+  movie,
+  fetchMovie,
+  IMAGE_PATH,
+  trailer,
+  API_KEY,
+  API_URL,
+  setMovies
+}) => {
   const [playing, setPlaying] = useState(false);
+
+  const { id } = useParams();
+
+  const fetchRecomendations = async (id) => {
+    const {
+      data: { results },
+    } = await axios.get(`${API_URL}/movie/${id}/recommendations`, {
+      params: {
+        api_key: API_KEY,
+      },
+    });
+
+    setMovies(results);
+  };
+
+  fetchMovie(id);
+  fetchRecomendations(id);
+
+  // console.log(movie.genres)
 
   return (
     <Fragment>
@@ -57,6 +86,15 @@ const MoviePage = ({ movie, IMAGE_PATH, trailer }) => {
                     )}
                     <h1 className="text-white">{movie.title}</h1>
                     <p className="text-white">{movie.overview}</p>
+                    <div>
+                      {movie.genres
+                        ? movie.genres.map((genre) => (
+                            <p key={genre.id} className="text-white">
+                              {genre.name}
+                            </p>
+                          ))
+                        : null}
+                    </div>
                   </div>
                 </div>
               )}
