@@ -1,15 +1,17 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Movie = ({ movie, selectMovie, URL_IMAGE }) => {
   return (
-    <div
-      key={movie.id}
+    <Link
+      to={`/movie/${movie.id}`}
       className="col-md-2 mb-3 img-movie-container"
-      onClick={() => selectMovie(movie)}
     >
-      <img className="img-movie" src={`${URL_IMAGE + movie.poster_path}`} />
-      <h4 className="text-center">{movie.title}</h4>
-    </div>
+      <div key={movie.id} onClick={() => selectMovie(movie)}>
+        <img className="img-movie" src={`${URL_IMAGE + movie.poster_path}`} />
+        <h4 className="text-center">{movie.title}</h4>
+      </div>
+    </Link>
   );
 };
 

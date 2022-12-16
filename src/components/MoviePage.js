@@ -1,6 +1,13 @@
-import React from "react";
+import React, { Fragment, useState } from "react";
+import YouTube from "react-youtube";
 
-const MoviePage = () => {
+const MoviePage = ({movie, setMovie}) => {
+  const [trailer, setTrailer] = useState(null);
+  
+  const [playing, setPlaying] = useState(false);
+
+  const IMAGE_PATH = "https://image.tmdb.org/t/p/original";
+
   //Petición de un solo objeto para mostrar en reproductor de video
   // const fetchMovie = async (id) => {
   //   const { data } = await axios.get(`${API_URL}/movie/${id}`, {
@@ -27,6 +34,7 @@ const MoviePage = () => {
   //   );
   //   setTrailer(trailerData ? trailerData : data.results[0]);
   // };
+
   return (
     <Fragment>
       {/* Contenedor del banner y reproductor de video*/}

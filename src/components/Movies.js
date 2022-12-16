@@ -7,7 +7,11 @@ const Movies = ({ movies, selectMovie, URL_IMAGE }) => {
       <div className="container mt-3">
         <div className="row">
           {movies.map((movie) => (
-            <Movie movie={movie} selectMovie={selectMovie} URL_IMAGE={URL_IMAGE}/>
+            <Movie
+              movie={movie}
+              selectMovie={selectMovie}
+              URL_IMAGE={URL_IMAGE}
+            />
           ))}
         </div>
       </div>

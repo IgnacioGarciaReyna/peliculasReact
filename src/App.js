@@ -3,20 +3,15 @@ import axios from "axios";
 import YouTube from "react-youtube";
 import Nav from "./components/Nav";
 import Movies from "./components/Movies";
+import MoviePage from "./components/MoviePage";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
-  
-
   //Variables de estado
-  
-  const [trailer, setTrailer] = useState(null);
   const [movie, setMovie] = useState({ title: "Loading Movies" });
-  const [playing, setPlaying] = useState(false);
-
 
   const API_URL = "https://api.themoviedb.org/3";
   const API_KEY = "77ac9b9acb030fb65e067b31a773b067";
-  const IMAGE_PATH = "https://image.tmdb.org/t/p/original";
   const URL_IMAGE = "https://image.tmdb.org/t/p/original";
 
   const [movies, setMovies] = useState([]);
@@ -49,15 +44,32 @@ function App() {
 
   const selectMovie = async (movie) => {
     // fetchMovie(movie.id);
-    // setMovie(movie);
+    setMovie(movie);
     // window.scrollTo(0, 0);
   };
-  
+
   return (
-    <div>
-      <Nav fetchMovies={fetchMovies} />
-      <Movies movies={movies} selectMovie={selectMovie} URL_IMAGE={URL_IMAGE}/>
-    </div>
+    <Router>
+      <Routes>
+        <Route
+          path="/movie/:id"
+          element={<MoviePage movie={movie} />}
+        />
+        <Route
+          path="/"
+          element={
+            <div>
+              <Nav fetchMovies={fetchMovies} />
+              <Movies
+                movies={movies}
+                selectMovie={selectMovie}
+                URL_IMAGE={URL_IMAGE}
+              />
+            </div>
+          }
+        />
+      </Routes>
+    </Router>
   );
 }
 
