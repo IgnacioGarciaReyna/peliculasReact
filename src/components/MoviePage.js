@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import YouTube from "react-youtube";
 
@@ -10,9 +10,10 @@ const MoviePage = ({
   trailer,
   API_KEY,
   API_URL,
-  setMovies
+  setMovies,
 }) => {
   const [playing, setPlaying] = useState(false);
+  const [providers, setProviders] = useState({});
 
   const { id } = useParams();
 
@@ -28,10 +29,21 @@ const MoviePage = ({
     setMovies(results);
   };
 
+  const fetchProviders = async (id) => {
+    const {
+      data: { results },
+    } = await axios.get(`${API_URL}/movie/${id}/watch/providers`, {
+      params: {
+        api_key: API_KEY,
+      },
+    });
+
+    setProviders(results);
+  };
+
   fetchMovie(id);
   fetchRecomendations(id);
-
-  // console.log(movie.genres)
+  fetchProviders(id);
 
   return (
     <Fragment>
@@ -82,7 +94,7 @@ const MoviePage = ({
                         Play Trailer
                       </button>
                     ) : (
-                      "Sorry, no trailer available"
+                      "No trailer available"
                     )}
                     <h1 className="text-white">{movie.title}</h1>
                     <p className="text-white">{movie.overview}</p>
@@ -91,6 +103,15 @@ const MoviePage = ({
                         ? movie.genres.map((genre) => (
                             <p key={genre.id} className="text-white">
                               {genre.name}
+                            </p>
+                          ))
+                        : null}
+                    </div>
+                    <div>
+                      {providers.AR
+                        ? providers.AR.rent.map((provider) => (
+                            <p className="text-white">
+                              {provider.provider_name}
                             </p>
                           ))
                         : null}
