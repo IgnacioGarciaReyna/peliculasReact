@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { Fragment, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import YouTube from "react-youtube";
+import Cast from "./Cast";
 import Genres from "./Genres";
 import Providers from "./Providers";
 import Trailer from "./Trailer";
@@ -15,9 +15,8 @@ const MoviePage = ({
   API_URL,
   setMovies,
 }) => {
-  const [playing, setPlaying] = useState(false);
   const [providers, setProviders] = useState({});
-
+  const [cast, setCast] = useState({});
   const { id } = useParams();
 
   const fetchRecomendations = async (id) => {
@@ -43,10 +42,21 @@ const MoviePage = ({
 
     setProviders(results);
   };
+  const fetchCast = async (id) => {
+    const data = await axios.get(`${API_URL}/movie/${id}/credits`, {
+      params: {
+        api_key: API_KEY,
+        language: "en-US",
+      },
+    });
+
+    setCast(data.data.cast);
+  };
 
   fetchMovie(id);
   fetchRecomendations(id);
   fetchProviders(id);
+  fetchCast(id);
 
   return (
     <Fragment>
@@ -64,6 +74,7 @@ const MoviePage = ({
                 <p className="text-white">{movie.overview}</p>
                 <Genres genres={movie.genres} />
                 <Providers providers={providers} />
+                <Cast cast={cast} />
               </div>
             </div>
           </div>
