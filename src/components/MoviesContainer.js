@@ -1,13 +1,13 @@
 import React, { Fragment } from "react";
-import Movie from "./Movie";
+import MovieCard from "./MovieCard";
 
-const Movies = ({ movies, URL_IMAGE }) => {
+const MoviesContainer = ({ movies, URL_IMAGE }) => {
   return (
     <Fragment>
-      <div className="container mt-3">
-        <div className="row">
+      <div className="container-movies">
+        <div className="row-movies">
           {movies.map((movie) => (
-            <Movie
+            <MovieCard
               key={movie.id}
               movie={movie}
               URL_IMAGE={URL_IMAGE}
@@ -19,4 +19,4 @@ const Movies = ({ movies, URL_IMAGE }) => {
   );
 };
 
-export default Movies;
+export default MoviesContainer;

@@ -7,15 +7,16 @@ const Search = ({ fetchMovies }) => {
     e.preventDefault();
     fetchMovies(searchKey);
   };
-  
+
   return (
-    <form className="container mb-4" onSubmit={searchMovies}>
+    <form className="search-movies-container" onSubmit={searchMovies}>
       <input
+        className="search-movies-input"
         type="text"
         placeholder="Search movies..."
         onChange={(e) => setSearchKey(e.target.value)}
       />
-      <button className="btn btn-primary">Search</button>
+      <button className="search-movies-button">Search</button>
     </form>
   );
 };

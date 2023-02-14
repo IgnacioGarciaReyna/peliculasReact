@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Nav from "./components/Nav";
-import Movies from "./components/Movies";
+import MoviesContainer from "./components/MoviesContainer";
 import MoviePage from "./components/MoviePage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -82,7 +82,7 @@ function App() {
                 API_URL={API_URL}
                 setMovies={setMovies}
               />
-              <Movies movies={movies} URL_IMAGE={URL_IMAGE}/>
+              <MoviesContainer movies={movies} URL_IMAGE={URL_IMAGE} />
             </div>
           }
         />
@@ -91,7 +91,7 @@ function App() {
           element={
             <div>
               <Nav fetchMovies={fetchMovies} />
-              <Movies movies={movies} URL_IMAGE={URL_IMAGE} />
+              <MoviesContainer movies={movies} URL_IMAGE={URL_IMAGE} />
             </div>
           }
         />
