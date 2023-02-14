@@ -12,14 +12,16 @@ const Home = ({ movies, IMAGE_PATH }) => {
             backgroundImage: `url("${IMAGE_PATH}${movies[0].backdrop_path}")`,
           }}
         >
-          <p>{movies[0].title} </p>
-          <p>{movies[0].overview}</p>
-          <p>{movies[0].release_date}</p>
+          <p className="home-movie-title">{movies[0].title} </p>
           <img
             className="home-movie-poster"
             src={`${IMAGE_PATH}${movies[0].poster_path}`}
             alt=""
           />
+          <div className="home-overview-container">
+            <p className="home-overview">{movies[0].overview}</p>
+          </div>
+          <p>{movies[0].release_date}</p>
           <div>
             <button>Ver ficha</button>
             <button>Trailer</button>

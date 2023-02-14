@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .viewtrailer {
   min-height: 700px;
   background-size: cover;
@@ -34,13 +39,30 @@ body {
 .home-container {
   height: 85vh;
   width: 100%;
-  border: 1px solid red;
 }
 
 .home-movie-container {
   height: 100%;
   background-size: cover;
   border-radius: 10px;
+  padding: 1rem 0 0 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: start;
+}
+
+.home-movie-title {
+  font-size: 50px;
+}
+
+.home-overview-container {
+  height: auto;
+  width: 35vw;
+}
+
+.home-overview {
+  font-size: 14px;
 }
 
 .home-movie-poster {
@@ -96,6 +118,7 @@ a {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  height: 3rem;
 }
 
 /* CSS Search */
@@ -107,17 +130,17 @@ a {
 .search-movies-input {
   all: unset;
   color: aliceblue;
-  border: 1px rgb(184, 38, 38) solid;
+  border: 1px rgb(253, 95, 95) solid;
   border-radius: 10px 0 0 10px;
-  padding: 5px;
+  padding: 8px;
   cursor: pointer;
 }
 
 .search-movies-button {
   all: unset;
   color: aliceblue;
-  border: 1px rgb(184, 38, 38) solid;
+  border: 1px rgb(253, 95, 95) solid;
   border-radius: 0 10px 10px 0;
-  padding: 5px;
+  padding: 8px;
   cursor: pointer;
 }
