@@ -18,7 +18,7 @@ const Home = ({ movies, IMAGE_PATH }) => {
             src={`${IMAGE_PATH}${movies[0].poster_path}`}
             alt=""
           />
-          <div className="home-overview-container">
+          <div className="overview-container">
             <p className="home-overview">{movies[0].overview}</p>
           </div>
           <p>{movies[0].release_date}</p>

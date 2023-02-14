@@ -56,12 +56,12 @@ body {
   font-size: 50px;
 }
 
-.home-overview-container {
+.overview-container {
   height: auto;
   width: 35vw;
 }
 
-.home-overview {
+.overview {
   font-size: 14px;
 }
 
@@ -91,6 +91,13 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: start;
+  filter: grayscale(30%);
+  transition: 0.5s;
+}
+
+.container-movie-card:hover {
+  filter: grayscale(0%);
+  transition: 0.3s;
 }
 
 .img-movie {
@@ -143,4 +150,46 @@ a {
   border-radius: 0 10px 10px 0;
   padding: 8px;
   cursor: pointer;
+}
+
+/* CSS Movie Page */
+
+.movie-page-container {
+  height: 100%;
+  background-size: cover;
+  border-radius: 10px;
+  padding: 1rem 0 0 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: start;
+}
+
+/* CSS Cast */
+.cast-container {
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.cast-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  width: 90px;
+  height: 150px;
+  margin: 0 5px;
+}
+
+.cast-img {
+  border-radius: 10px;
+}
+
+.cast-name{
+  font-size: 12px;
+  text-align: center;
 }

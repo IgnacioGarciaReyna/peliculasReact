@@ -63,19 +63,19 @@ const MoviePage = ({
       <div>
         <main>
           <div
-            className="viewtrailer"
+            className="viewtrailer movie-page-container"
             style={{
               backgroundImage: `url("${IMAGE_PATH}${movie.backdrop_path}")`,
             }}
           >
-            <div className="container">
-              <div>
-                <h1 className="text-white">{movie.title}</h1>
-                <p className="text-white">{movie.overview}</p>
-                <Genres genres={movie.genres} />
-                <Providers providers={providers} />
-                <Cast cast={cast} />
+            <div>
+              <h1 className="text-white">{movie.title}</h1>
+              <div className="overview-container">
+                <p className="overview">{movie.overview}</p>
               </div>
+              <Genres genres={movie.genres} />
+              <Providers providers={providers} />
+              <Cast cast={cast} />
             </div>
           </div>
           <Trailer trailer={trailer} />
