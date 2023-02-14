@@ -4,7 +4,7 @@ import Search from "./Search";
 const Nav = ({ fetchMovies }) => {
   return (
     <nav className="navigation-container">
-      <h1 className="">Black Lodge Trailers</h1>
+      <h1 className="page-title">Black Lodge Trailers</h1>
       <Search fetchMovies={fetchMovies} />
     </nav>
   );
