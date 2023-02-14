@@ -4,6 +4,7 @@ import Nav from "./components/Nav";
 import MoviesContainer from "./components/MoviesContainer";
 import MoviePage from "./components/MoviePage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./components/Home";
 
 function App() {
   //Variables de estado
@@ -91,6 +92,7 @@ function App() {
           element={
             <div>
               <Nav fetchMovies={fetchMovies} />
+              <Home movies={movies} IMAGE_PATH={IMAGE_PATH} />
               <MoviesContainer movies={movies} URL_IMAGE={URL_IMAGE} />
             </div>
           }
