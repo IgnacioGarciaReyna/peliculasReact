@@ -69,11 +69,11 @@ const MoviePage = ({
             }}
           >
             <div>
-              <h1 className="text-white">{movie.title}</h1>
+              <p className="home-movie-title">{movie.title}</p>
+              <Genres genres={movie.genres} />
               <div className="overview-container">
                 <p className="overview">{movie.overview}</p>
               </div>
-              <Genres genres={movie.genres} />
               <Providers providers={providers} />
               <Cast cast={cast} />
             </div>
