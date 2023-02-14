@@ -74,6 +74,7 @@ function App() {
           path="/movie/:id"
           element={
             <div>
+              <Nav fetchMovies={fetchMovies} />
               <MoviePage
                 movie={movie}
                 fetchMovie={fetchMovie}
