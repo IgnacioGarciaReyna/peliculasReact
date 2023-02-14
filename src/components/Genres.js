@@ -1,13 +1,15 @@
 import React from "react";
 
-const Genres = ({genres}) => {
+const Genres = ({ genres }) => {
   return (
-    <div>
+    <div className="genres-container">
       {genres
         ? genres.map((genre) => (
-            <p key={genre.id} className="text-white">
-              {genre.name}
-            </p>
+            <div className="genre-name-container">
+              <p key={genre.id} className="genre-name">
+                {genre.name}
+              </p>
+            </div>
           ))
         : null}
     </div>
