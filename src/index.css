@@ -25,6 +25,8 @@
 body {
   background-color: #171718;
   color: aliceblue;
+  font-family: "Raleway", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 /* CSS Home */
@@ -55,6 +57,7 @@ body {
   align-items: center;
   justify-content: center;
   grid-template-columns: auto auto auto auto auto auto;
+  padding: 3rem 0 0 0;
 }
 
 /* CSS Movie card */
