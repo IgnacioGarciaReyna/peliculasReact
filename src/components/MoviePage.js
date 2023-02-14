@@ -59,29 +59,25 @@ const MoviePage = ({
   fetchCast(id);
 
   return (
-    <Fragment>
-      <div>
-        <main>
-          <div
-            className="viewtrailer movie-page-container"
-            style={{
-              backgroundImage: `url("${IMAGE_PATH}${movie.backdrop_path}")`,
-            }}
-          >
-            <div>
-              <p className="home-movie-title">{movie.title}</p>
-              <Genres genres={movie.genres} />
-              <div className="overview-container">
-                <p className="overview">{movie.overview}</p>
-              </div>
-              <Providers providers={providers} />
-              <Cast cast={cast} />
-            </div>
+    <div className="home-container">
+      <div
+        className="movie-page-container"
+        style={{
+          backgroundImage: `url("${IMAGE_PATH}${movie.backdrop_path}")`,
+        }}
+      >
+        <div className="background-cover">
+          <p className="home-movie-title">{movie.title}</p>
+          <Genres genres={movie.genres} />
+          <div className="overview-container">
+            <p className="overview">{movie.overview}</p>
           </div>
-          <Trailer trailer={trailer} />
-        </main>
+          <Providers providers={providers} />
+          <Cast cast={cast} />
+        </div>
+        {/* <Trailer trailer={trailer} /> */}
       </div>
-    </Fragment>
+    </div>
   );
 };
 
