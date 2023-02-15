@@ -11,7 +11,7 @@ import { Pagination } from "swiper";
 
 const MoviesContainer = ({ title, movies, URL_IMAGE }) => {
   return (
-    <div>
+    <div className="container-movies">
       {/* <div className="container-movies">
           <div className="row-movies">
             <div className="wrapper">
@@ -21,9 +21,9 @@ const MoviesContainer = ({ title, movies, URL_IMAGE }) => {
             </div>
           </div>
         </div> */}
-      <p>{title}</p>
+      <p className="movies-container-title">{title}</p>
       <Swiper
-        slidesPerView={7}
+        slidesPerView={6}
         spaceBetween={0}
         grabCursor={true}
         pagination={{
@@ -33,8 +33,8 @@ const MoviesContainer = ({ title, movies, URL_IMAGE }) => {
         className="mySwiper"
       >
         {movies.map((movie) => (
-          <SwiperSlide>
-            <MovieCard key={movie.id} movie={movie} URL_IMAGE={URL_IMAGE} />
+          <SwiperSlide key={movie.id}>
+            <MovieCard movie={movie} URL_IMAGE={URL_IMAGE} />
           </SwiperSlide>
         ))}
       </Swiper>
