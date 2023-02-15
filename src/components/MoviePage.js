@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import Cast from "./Cast";
 import Genres from "./Genres";
 import Providers from "./Providers";
+import Stars from "./Stars";
 import Trailer from "./Trailer";
 
 const MoviePage = ({
@@ -67,8 +68,11 @@ const MoviePage = ({
         }}
       >
         <div className="background-cover">
-          <p className="home-movie-title">{movie.title}</p>
-          <Genres genres={movie.genres} />
+          <div className="movie-title-container">
+            <p className="home-movie-title">{movie.title}</p>
+            <Stars vote_average={movie.vote_average} />
+            <Genres genres={movie.genres} />
+          </div>
           <div className="overview-container">
             <p className="overview">{movie.overview}</p>
           </div>

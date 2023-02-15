@@ -173,6 +173,10 @@ a {
   border-radius: 30px;
 }
 
+.movie-title-container {
+  width: auto;
+}
+
 /* CSS Cast */
 .cast-container {
   width: auto;
@@ -224,7 +228,14 @@ a {
 }
 
 /* CSS Stars */
-.stars-container{
+.stars-container {
+  width: 100%;
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: start;
+}
+
+.stars-container > * {
+  margin: 0 0.2rem;
 }
