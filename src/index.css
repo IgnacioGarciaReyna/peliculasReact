@@ -77,11 +77,27 @@ body {
 
 .row-movies {
   height: auto;
-  display: grid;
-  align-items: center;
-  justify-content: center;
-  grid-template-columns: auto auto auto auto auto auto;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
   padding: 3rem 0 0 0;
+  position: relative;
+  touch-action: pan-y;
+  cursor: grab;
+}
+
+.wrapper {
+  box-sizing: initial;
+  display: flex;
+  height: 100%;
+  position: relative;
+  transition-property: -webkit-transform;
+  transition-property: transform;
+  transition-property: transform, -webkit-transform;
+  width: 100%;
+  z-index: 1;
+  cursor: grab;
 }
 
 /* CSS Movie card */
@@ -100,7 +116,6 @@ body {
 .container-movie-card:hover {
   filter: grayscale(0%);
   transition: 0.3s;
-  margin: 0.5rem 1rem 1.5rem 1rem;
 }
 
 .img-movie {
