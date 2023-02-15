@@ -1,4 +1,5 @@
 import React from "react";
+import { BsStarFill, BsStarHalf, BsStar } from "react-icons/bs";
 
 const Stars = ({ average }) => {
   const stars = [];
@@ -8,13 +9,13 @@ const Stars = ({ average }) => {
   const emptyStars = Math.trunc(5 - average / 2);
 
   for (let i = 0; i < fullStars; i++) {
-    stars.push("Full Star");
+    stars.push(<BsStarFill />);
   }
   if (midStar) {
-    stars.push("Mid star");
+    stars.push(<BsStarHalf />);
   }
   for (let i = 0; i < emptyStars; i++) {
-    stars.push("Empty star");
+    stars.push(<BsStar />);
   }
 
   console.log(stars);
