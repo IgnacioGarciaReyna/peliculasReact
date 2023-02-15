@@ -5,7 +5,7 @@ const Search = ({ fetchMovies }) => {
 
   const searchMovies = (e) => {
     e.preventDefault();
-    fetchMovies(searchKey);
+    fetchMovies("search", searchKey);
   };
 
   return (

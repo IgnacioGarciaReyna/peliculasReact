@@ -6,7 +6,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 
-
 // import required modules
 import { Pagination } from "swiper";
 
@@ -25,6 +24,7 @@ const MoviesContainer = ({ movies, URL_IMAGE }) => {
       <Swiper
         slidesPerView={7}
         spaceBetween={0}
+        grabCursor={true}
         pagination={{
           clickable: true,
         }}

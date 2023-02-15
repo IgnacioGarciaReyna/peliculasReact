@@ -48,9 +48,9 @@ function App() {
   };
 
   //Petición a la API
-  const fetchMovies = async (searchKey) => {
+  const fetchMovies = async (type, searchKey) => {
     //Si no hay busqueda, que muestre "descubrir"
-    const type = searchKey ? "search" : "discover";
+
     const {
       data: { results },
     } = await axios.get(`${API_URL}/${type}/movie`, {
@@ -64,7 +64,7 @@ function App() {
   };
 
   useEffect(() => {
-    fetchMovies();
+    fetchMovies("discover");
   }, []);
 
   return (
@@ -94,6 +94,9 @@ function App() {
             <div>
               <Nav fetchMovies={fetchMovies} />
               <Home movies={movies} IMAGE_PATH={IMAGE_PATH} />
+              <MoviesContainer movies={movies} URL_IMAGE={URL_IMAGE} />
+              <MoviesContainer movies={movies} URL_IMAGE={URL_IMAGE} />
+              <MoviesContainer movies={movies} URL_IMAGE={URL_IMAGE} />
               <MoviesContainer movies={movies} URL_IMAGE={URL_IMAGE} />
             </div>
           }
