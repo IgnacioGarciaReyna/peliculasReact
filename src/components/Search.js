@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 
-const Search = ({ fetchMovies }) => {
+const Search = ({ fetchMovies, searchType }) => {
   const [searchKey, setSearchKey] = useState("");
 
   const searchMovies = (e) => {
     e.preventDefault();
-    fetchMovies("search", searchKey);
+    fetchMovies(searchType, searchKey);
   };
 
   return (

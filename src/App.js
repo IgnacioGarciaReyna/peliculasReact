@@ -14,7 +14,10 @@ function App() {
   const API_KEY = "77ac9b9acb030fb65e067b31a773b067";
   const URL_IMAGE = "https://image.tmdb.org/t/p/original";
 
-  const [movies, setMovies] = useState([]);
+  const [discoverMovies, setDiscoverMovies] = useState([]);
+  const [topRatedMovies, setTopRatedMovies] = useState([]);
+  const [popularSeries, setpopularSeries] = useState([]);
+  const [topRatedSeries, settopRatedSeries] = useState([]);
 
   const [trailer, setTrailer] = useState(null);
 
@@ -47,24 +50,40 @@ function App() {
     setTrailer(trailerData ? trailerData : data.results[0]);
   };
 
+  //Strings para el fetch
+  const discoverMoviesType = "/discover/movie";
+  const topRatedMoviesType = "/movie/top_rated";
+  const popularTvType = "/tv/popular";
+  const topRatedTvType = "/tv/top_rated";
+  const searchType = "/search/movie";
+
   //Petición a la API
   const fetchMovies = async (type, searchKey) => {
-    //Si no hay busqueda, que muestre "descubrir"
-
     const {
       data: { results },
-    } = await axios.get(`${API_URL}/${type}/movie`, {
+    } = await axios.get(`${API_URL}${type}`, {
       params: {
         api_key: API_KEY,
         query: searchKey,
       },
     });
 
-    setMovies(results);
+    if (type == discoverMoviesType) {
+      setDiscoverMovies(results);
+    } else if (type == topRatedMoviesType) {
+      setTopRatedMovies(results);
+    } else if (type == popularTvType) {
+      setpopularSeries(results);
+    } else if (type == topRatedTvType) {
+      settopRatedSeries(results);
+    }
   };
 
   useEffect(() => {
-    fetchMovies("discover");
+    fetchMovies(discoverMoviesType);
+    fetchMovies(topRatedMoviesType);
+    fetchMovies(popularTvType);
+    fetchMovies(topRatedTvType);
   }, []);
 
   return (
@@ -74,7 +93,7 @@ function App() {
           path="/movie/:id"
           element={
             <div>
-              <Nav fetchMovies={fetchMovies} />
+              <Nav fetchMovies={fetchMovies} searchType={searchType} />
               <MoviePage
                 movie={movie}
                 fetchMovie={fetchMovie}
@@ -82,9 +101,9 @@ function App() {
                 trailer={trailer}
                 API_KEY={API_KEY}
                 API_URL={API_URL}
-                setMovies={setMovies}
+                setMovies={setDiscoverMovies}
               />
-              <MoviesContainer movies={movies} URL_IMAGE={URL_IMAGE} />
+              <MoviesContainer movies={discoverMovies} URL_IMAGE={URL_IMAGE} />
             </div>
           }
         />
@@ -92,12 +111,28 @@ function App() {
           path="/"
           element={
             <div>
-              <Nav fetchMovies={fetchMovies} />
-              <Home movies={movies} IMAGE_PATH={IMAGE_PATH} />
-              <MoviesContainer movies={movies} URL_IMAGE={URL_IMAGE} />
-              <MoviesContainer movies={movies} URL_IMAGE={URL_IMAGE} />
-              <MoviesContainer movies={movies} URL_IMAGE={URL_IMAGE} />
-              <MoviesContainer movies={movies} URL_IMAGE={URL_IMAGE} />
+              <Nav fetchMovies={fetchMovies} searchType={searchType} />
+              <Home movies={discoverMovies} IMAGE_PATH={IMAGE_PATH} />
+              <MoviesContainer
+                title={"Discover Movies"}
+                movies={discoverMovies}
+                URL_IMAGE={URL_IMAGE}
+              />
+              <MoviesContainer
+                title={"Top Rated Movies"}
+                movies={topRatedMovies}
+                URL_IMAGE={URL_IMAGE}
+              />
+              <MoviesContainer
+                title={"Popular Series"}
+                movies={popularSeries}
+                URL_IMAGE={URL_IMAGE}
+              />
+              <MoviesContainer
+                title={"Top Rated Series"}
+                movies={topRatedSeries}
+                URL_IMAGE={URL_IMAGE}
+              />
             </div>
           }
         />
