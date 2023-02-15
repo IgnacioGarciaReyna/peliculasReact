@@ -5,10 +5,8 @@ const Genres = ({ genres }) => {
     <div className="genres-container">
       {genres
         ? genres.map((genre) => (
-            <div className="genre-name-container">
-              <p key={genre.id} className="genre-name">
-                {genre.name}
-              </p>
+            <div key={genre.id} className="genre-name-container">
+              <p className="genre-name">{genre.name}</p>
             </div>
           ))
         : null}

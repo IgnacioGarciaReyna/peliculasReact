@@ -12,9 +12,14 @@ const Cast = ({ cast }) => {
     <div className="cast-container">
       {principalCast[0]
         ? principalCast.map((actor) => (
-            <div className="cast-card">
-              <img className="cast-img" width="80px" src={`${IMG_URL}${actor.profile_path}`} alt={actor.name} />
-              <p className="cast-name" key={actor.id}>{actor.name}</p>
+            <div className="cast-card" key={actor.id}>
+              <img
+                className="cast-img"
+                width="80px"
+                src={`${IMG_URL}${actor.profile_path}`}
+                alt={actor.name}
+              />
+              <p className="cast-name">{actor.name}</p>
             </div>
           ))
         : null}
