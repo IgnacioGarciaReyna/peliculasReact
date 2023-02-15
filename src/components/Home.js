@@ -1,4 +1,5 @@
 import React from "react";
+import Stars from "./Stars";
 
 const Home = ({ movies, IMAGE_PATH }) => {
   console.log(movies);
@@ -20,6 +21,7 @@ const Home = ({ movies, IMAGE_PATH }) => {
               src={`${IMAGE_PATH}${movies[0].poster_path}`}
               alt=""
             />
+            <Stars average={movies[0].vote_average} />
             <div className="overview-container">
               <p className="home-overview">{movies[0].overview}</p>
             </div>
