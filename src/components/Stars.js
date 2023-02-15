@@ -22,11 +22,9 @@ const Stars = ({ average }) => {
 
   return (
     <div className="stars-container">
-      <div>
-        {stars.map((star) => (
-          <p> {star}</p>
-        ))}
-      </div>
+      {stars.map((star) => (
+        <div>{star} </div>
+      ))}
     </div>
   );
 };
