@@ -18,6 +18,7 @@ const MoviePage = ({
 }) => {
   const [providers, setProviders] = useState({});
   const [cast, setCast] = useState({});
+  const [crew, setCrew] = useState({});
   const { category, id } = useParams();
 
   const fetchRecomendations = async (category, id) => {
@@ -53,6 +54,7 @@ const MoviePage = ({
     });
 
     setCast(data.data.cast);
+    setCrew(data.data.crew);
   };
 
   fetchMovie(category, id);
@@ -80,7 +82,8 @@ const MoviePage = ({
             <p className="overview">{movie.overview}</p>
           </div>
           <Providers providers={providers} />
-          <Cast cast={cast} />
+          <Cast title={"Cast"} cast={cast} />
+          <Cast title={"Crew"} cast={crew} />
         </div>
         {/* <Trailer trailer={trailer} /> */}
       </div>
