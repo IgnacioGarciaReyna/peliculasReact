@@ -21,6 +21,7 @@ function App() {
   const [topRatedSeries, setTopRatedSeries] = useState([]);
   const [searchMoviesResults, setSearchMoviesResults] = useState([]);
   const [searchSeriesResults, setSearchSeriesResults] = useState([]);
+  const [recommendations, setRecomendations] = useState([]);
 
   const [trailer, setTrailer] = useState(null);
 
@@ -124,11 +125,11 @@ function App() {
                 trailer={trailer}
                 API_KEY={API_KEY}
                 API_URL={API_URL}
-                setMovies={setDiscoverMovies}
+                setMovies={setRecomendations}
               />
               <MoviesContainer
                 title={"Related"}
-                movies={discoverMovies}
+                movies={recommendations}
                 URL_IMAGE={URL_IMAGE}
               />
             </div>

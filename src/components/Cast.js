@@ -24,8 +24,7 @@ const Cast = ({ title, cast }) => {
                   alt={actor.name}
                 />
                 <p className="cast-name">{actor.name}</p>
-                <p className="cast-name">{actor.character ? actor.character : actor.job}</p>
-                
+                {actor.job ? <p className="cast-name"> {actor.job} </p> : null}
               </div>
             ))
           : null}
