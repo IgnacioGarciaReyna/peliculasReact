@@ -24,11 +24,10 @@ function App() {
   const IMAGE_PATH = "https://image.tmdb.org/t/p/original";
 
   //Petición de un solo objeto para mostrar en reproductor de video
-  const fetchMovie = async (id) => {
-    const { data } = await axios.get(`${API_URL}/movie/${id}`, {
+  const fetchMovie = async (category, id) => {
+    const { data } = await axios.get(`${API_URL}/${category}/${id}`, {
       params: {
         api_key: API_KEY,
-        append_to_response: "video",
       },
     });
 
@@ -50,7 +49,7 @@ function App() {
     setTrailer(trailerData ? trailerData : data.results[0]);
   };
 
-  //Strings para el fetch
+  //Strings para el fetch de varias Movies
   const discoverMoviesType = "/discover/movie";
   const topRatedMoviesType = "/movie/top_rated";
   const popularTvType = "/tv/popular";
@@ -90,7 +89,7 @@ function App() {
     <Router>
       <Routes>
         <Route
-          path="/movie/:id"
+          path="/:category/:id"
           element={
             <div>
               <Nav fetchMovies={fetchMovies} searchType={searchType} />
