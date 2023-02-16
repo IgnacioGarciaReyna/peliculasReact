@@ -19,7 +19,8 @@ function App() {
   const [topRatedMovies, setTopRatedMovies] = useState([]);
   const [popularSeries, setPopularSeries] = useState([]);
   const [topRatedSeries, setTopRatedSeries] = useState([]);
-  const [searchResults, setSearchResults] = useState([]);
+  const [searchMoviesResults, setSearchMoviesResults] = useState([]);
+  const [searchSeriesResults, setSearchSeriesResults] = useState([]);
 
   const [trailer, setTrailer] = useState(null);
 
@@ -56,7 +57,8 @@ function App() {
   const topRatedMoviesType = "/movie/top_rated";
   const popularTvType = "/tv/popular";
   const topRatedTvType = "/tv/top_rated";
-  const searchType = "/search/movie";
+  const searchMoviesType = "/search/movie";
+  const searchSeriesType = "/search/tv";
 
   //Petición a la API
   const fetchMovies = async (type, searchKey) => {
@@ -77,8 +79,10 @@ function App() {
       setPopularSeries(results);
     } else if (type === topRatedTvType) {
       setTopRatedSeries(results);
-    } else if (type === searchType) {
-      setSearchResults(results);
+    } else if (type === searchMoviesType) {
+      setSearchMoviesResults(results);
+    } else if (type === searchSeriesType) {
+      setSearchSeriesResults(results);
     }
   };
 
@@ -96,8 +100,15 @@ function App() {
           path="/search/:key"
           element={
             <div>
-              <Nav fetchMovies={fetchMovies} searchType={searchType} />
-              <SearchResults searchType={searchType} fetchMovies={fetchMovies} movies={searchResults} URL_IMAGE={URL_IMAGE} />
+              <Nav />
+              <SearchResults
+                searchMoviesType={searchMoviesType}
+                searchSeriesType={searchSeriesType}
+                fetchMovies={fetchMovies}
+                movies={searchMoviesResults}
+                series={searchSeriesResults}
+                URL_IMAGE={URL_IMAGE}
+              />
             </div>
           }
         />
@@ -105,7 +116,7 @@ function App() {
           path="/:category/:id"
           element={
             <div>
-              <Nav fetchMovies={fetchMovies} searchType={searchType} />
+              <Nav />
               <MoviePage
                 movie={movie}
                 fetchMovie={fetchMovie}
@@ -127,7 +138,7 @@ function App() {
           path="/"
           element={
             <div>
-              <Nav fetchMovies={fetchMovies} searchType={searchType} />
+              <Nav />
               <Home movies={discoverMovies} IMAGE_PATH={IMAGE_PATH} />
               <MoviesContainer
                 title={"Discover Movies"}
