@@ -79,7 +79,21 @@ const MoviePage = ({
             <Genres genres={movie.genres} />
           </div>
           <p>{movie.tagline}</p>
-          <p>Release date: {movie.release_date}</p>
+          <p>
+            Release date:
+            {movie.release_date ? movie.release_date : movie.first_air_date}
+          </p>
+          {movie.number_of_episodes ? (
+            <div>
+              <p>number_of_episodes: {movie.number_of_episodes}</p>{" "}
+              <p>number_of_seasons: {movie.number_of_seasons} </p>
+            </div>
+          ) : null}
+          {movie.created_by ? (
+            <div className="creators">
+              <Cast title={"Creators"} cast={movie.created_by} />
+            </div>
+          ) : null}
           <div className="overview-container">
             <p className="overview">{movie.overview}</p>
           </div>
@@ -90,7 +104,6 @@ const MoviePage = ({
       </div>
       <p>Trailer</p>
       <div className="trailer-container">
-        
         <Trailer trailer={trailer} />
       </div>
     </div>
