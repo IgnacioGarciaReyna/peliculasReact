@@ -67,13 +67,13 @@ function App() {
       },
     });
 
-    if (type == discoverMoviesType) {
+    if (type === discoverMoviesType) {
       setDiscoverMovies(results);
-    } else if (type == topRatedMoviesType) {
+    } else if (type === topRatedMoviesType) {
       setTopRatedMovies(results);
-    } else if (type == popularTvType) {
+    } else if (type === popularTvType) {
       setpopularSeries(results);
-    } else if (type == topRatedTvType) {
+    } else if (type === topRatedTvType) {
       settopRatedSeries(results);
     }
   };
@@ -102,7 +102,11 @@ function App() {
                 API_URL={API_URL}
                 setMovies={setDiscoverMovies}
               />
-              <MoviesContainer movies={discoverMovies} URL_IMAGE={URL_IMAGE} />
+              <MoviesContainer
+                title={"Related"}
+                movies={discoverMovies}
+                URL_IMAGE={URL_IMAGE}
+              />
             </div>
           }
         />

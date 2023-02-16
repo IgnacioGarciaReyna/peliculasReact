@@ -20,10 +20,10 @@ const MoviePage = ({
   const [cast, setCast] = useState({});
   const { category, id } = useParams();
 
-  const fetchRecomendations = async (id) => {
+  const fetchRecomendations = async (category, id) => {
     const {
       data: { results },
-    } = await axios.get(`${API_URL}/movie/${id}/recommendations`, {
+    } = await axios.get(`${API_URL}/${category}/${id}/recommendations`, {
       params: {
         api_key: API_KEY,
       },
@@ -56,7 +56,7 @@ const MoviePage = ({
   };
 
   fetchMovie(category, id);
-  fetchRecomendations(id);
+  fetchRecomendations(category, id);
   fetchProviders(id);
   fetchCast(category, id);
   // console.log(movie);
