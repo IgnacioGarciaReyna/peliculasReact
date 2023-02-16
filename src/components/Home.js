@@ -9,6 +9,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper";
+import { Link } from "react-router-dom";
 
 const Home = ({ movies, IMAGE_PATH }) => {
   return (
@@ -48,8 +49,9 @@ const Home = ({ movies, IMAGE_PATH }) => {
                   <p className="home-overview">{movie.overview}</p>
                 </div>
                 <div>
-                  <button>Ver ficha</button>
-                  <button>Trailer</button>
+                  <Link to={`/movie/${movie.id}`}>
+                    <button>Go to details</button>
+                  </Link>
                 </div>
               </div>
             </div>
