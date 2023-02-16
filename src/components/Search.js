@@ -1,22 +1,20 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
-const Search = ({ fetchMovies, searchType }) => {
+const Search = () => {
   const [searchKey, setSearchKey] = useState("");
 
-  const searchMovies = (e) => {
-    e.preventDefault();
-    fetchMovies(searchType, searchKey);
-  };
-
   return (
-    <form className="search-movies-container" onSubmit={searchMovies}>
+    <form className="search-movies-container">
       <input
         className="search-movies-input"
         type="text"
         placeholder="Search movies..."
         onChange={(e) => setSearchKey(e.target.value)}
       />
-      <button className="search-movies-button">Search</button>
+      <Link to={`/search/${searchKey}`}>
+        <button className="search-movies-button">Search</button>
+      </Link>
     </form>
   );
 };

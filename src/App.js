@@ -5,6 +5,7 @@ import MoviesContainer from "./components/MoviesContainer";
 import MoviePage from "./components/MoviePage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
+import SearchResults from "./components/SearchResults";
 
 function App() {
   //Variables de estado
@@ -16,8 +17,9 @@ function App() {
 
   const [discoverMovies, setDiscoverMovies] = useState([]);
   const [topRatedMovies, setTopRatedMovies] = useState([]);
-  const [popularSeries, setpopularSeries] = useState([]);
-  const [topRatedSeries, settopRatedSeries] = useState([]);
+  const [popularSeries, setPopularSeries] = useState([]);
+  const [topRatedSeries, setTopRatedSeries] = useState([]);
+  const [searchResults, setSearchResults] = useState([]);
 
   const [trailer, setTrailer] = useState(null);
 
@@ -72,9 +74,11 @@ function App() {
     } else if (type === topRatedMoviesType) {
       setTopRatedMovies(results);
     } else if (type === popularTvType) {
-      setpopularSeries(results);
+      setPopularSeries(results);
     } else if (type === topRatedTvType) {
-      settopRatedSeries(results);
+      setTopRatedSeries(results);
+    } else if (type === searchType) {
+      setSearchResults(results);
     }
   };
 
@@ -88,6 +92,15 @@ function App() {
   return (
     <Router>
       <Routes>
+        <Route
+          path="/search/:key"
+          element={
+            <div>
+              <Nav fetchMovies={fetchMovies} searchType={searchType} />
+              <SearchResults searchType={searchType} fetchMovies={fetchMovies} movies={searchResults} URL_IMAGE={URL_IMAGE} />
+            </div>
+          }
+        />
         <Route
           path="/:category/:id"
           element={

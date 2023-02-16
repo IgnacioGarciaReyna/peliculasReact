@@ -241,3 +241,9 @@ a {
 .stars-container > * {
   margin: 0 0.2rem;
 }
+
+/* CSS Search Results */
+.search-results-container{
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+}
