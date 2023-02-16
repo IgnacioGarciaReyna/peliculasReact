@@ -15,6 +15,7 @@ function App() {
   const API_KEY = "77ac9b9acb030fb65e067b31a773b067";
   const URL_IMAGE = "https://image.tmdb.org/t/p/original";
 
+  const [upcomingMovies, setUpcomingMovies] = useState([]);
   const [discoverMovies, setDiscoverMovies] = useState([]);
   const [topRatedMovies, setTopRatedMovies] = useState([]);
   const [popularSeries, setPopularSeries] = useState([]);
@@ -54,6 +55,7 @@ function App() {
   };
 
   //Strings para el fetch de varias Movies
+  const upcomingMoviesType = "/movie/upcoming";
   const discoverMoviesType = "/discover/movie";
   const topRatedMoviesType = "/movie/top_rated";
   const popularTvType = "/tv/popular";
@@ -72,7 +74,9 @@ function App() {
       },
     });
 
-    if (type === discoverMoviesType) {
+    if (type === upcomingMoviesType) {
+      setUpcomingMovies(results);
+    } else if (type === discoverMoviesType) {
       setDiscoverMovies(results);
     } else if (type === topRatedMoviesType) {
       setTopRatedMovies(results);
@@ -88,6 +92,7 @@ function App() {
   };
 
   useEffect(() => {
+    fetchMovies(upcomingMoviesType);
     fetchMovies(discoverMoviesType);
     fetchMovies(topRatedMoviesType);
     fetchMovies(popularTvType);
@@ -140,7 +145,7 @@ function App() {
           element={
             <div>
               <Nav />
-              <Home movies={discoverMovies} IMAGE_PATH={IMAGE_PATH} />
+              <Home movies={upcomingMovies} IMAGE_PATH={IMAGE_PATH} />
               <MoviesContainer
                 title={"Discover Movies"}
                 movies={discoverMovies}
