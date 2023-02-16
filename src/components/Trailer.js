@@ -1,17 +1,17 @@
-import React from "react";
+import React, { Fragment } from "react";
 import YouTube from "react-youtube";
 
 const Trailer = ({ trailer }) => {
   return (
-    <div>
+    <Fragment>
       {trailer ? (
         <YouTube
           videoId={trailer.key}
-          className="reproductor container"
+          className="trailer-reproductor"
           containerClassName={"youtube-container"}
           opts={{
             // Tomado de youtube react
-            with: "100%",
+            width: "600px",
             height: "100%",
             playerVars: {
               autoplay: 0,
@@ -26,7 +26,7 @@ const Trailer = ({ trailer }) => {
           }}
         />
       ) : null}
-    </div>
+    </Fragment>
   );
 };
 

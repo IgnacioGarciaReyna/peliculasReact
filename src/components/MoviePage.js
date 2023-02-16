@@ -78,6 +78,8 @@ const MoviePage = ({
             <Stars vote_average={movie.vote_average} />
             <Genres genres={movie.genres} />
           </div>
+          <p>{movie.tagline}</p>
+          <p>Release date: {movie.release_date}</p>
           <div className="overview-container">
             <p className="overview">{movie.overview}</p>
           </div>
@@ -85,7 +87,11 @@ const MoviePage = ({
           <Cast title={"Cast"} cast={cast} />
           <Cast title={"Crew"} cast={crew} />
         </div>
-        {/* <Trailer trailer={trailer} /> */}
+      </div>
+      <p>Trailer</p>
+      <div className="trailer-container">
+        
+        <Trailer trailer={trailer} />
       </div>
     </div>
   );
