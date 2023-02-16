@@ -133,7 +133,7 @@ function App() {
                 setMovies={setRecomendations}
               />
               <MoviesContainer
-                title={"Related"}
+                title={`Related to "${movie.title || movie.name}"`}
                 movies={recommendations}
                 URL_IMAGE={URL_IMAGE}
               />
