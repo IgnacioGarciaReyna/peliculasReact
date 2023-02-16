@@ -36,13 +36,13 @@ function App() {
       },
     });
 
-    fetchTrailer(data.id);
+    fetchTrailer(category, data.id);
     setMovie(data);
   };
 
   // //Peticion para el trailer
-  const fetchTrailer = async (id) => {
-    const { data } = await axios.get(`${API_URL}/movie/${id}/videos?`, {
+  const fetchTrailer = async (category, id) => {
+    const { data } = await axios.get(`${API_URL}/${category}/${id}/videos?`, {
       params: {
         api_key: API_KEY,
         language: "en-US",
