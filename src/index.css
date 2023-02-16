@@ -83,7 +83,7 @@ body {
   position: unset !important;
 }
 
-.movies-container-title{
+.movies-container-title {
   font-size: 20px;
 }
 
@@ -141,6 +141,7 @@ a {
 
 .page-title {
   margin: 0 3rem;
+  cursor: pointer;
 }
 
 /* CSS Search */
@@ -243,7 +244,7 @@ a {
 }
 
 /* CSS Search Results */
-.search-results-container{
+.search-results-container {
   display: grid;
   grid-template-columns: auto auto auto auto auto;
 }
