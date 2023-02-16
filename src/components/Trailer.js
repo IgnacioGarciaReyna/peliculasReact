@@ -4,6 +4,8 @@ import YouTube from "react-youtube";
 const Trailer = ({ trailer }) => {
   return (
     <Fragment>
+      <p>{trailer.type}</p>
+      <p>{trailer.name}</p>
       {trailer ? (
         <YouTube
           videoId={trailer.key}
