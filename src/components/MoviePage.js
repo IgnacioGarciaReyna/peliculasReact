@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 import Cast from "./Cast";
 import Genres from "./Genres";
 import MoviesContainer from "./MoviesContainer";
-import Providers from "./Providers";
 import Stars from "./Stars";
 import Trailer from "./Trailer";
 
@@ -14,9 +13,6 @@ const MoviePage = ({ IMAGE_PATH }) => {
   //Variables de estado
   const [movie, setMovie] = useState({ title: "Loading Movies" });
 
-  const [providers, setProviders] = useState({});
-
-  const [trailer, setTrailer] = useState(null);
   const { category, id } = useParams();
 
   //Petición de un solo objeto para mostrar en reproductor de video
@@ -27,39 +23,11 @@ const MoviePage = ({ IMAGE_PATH }) => {
       },
     });
 
-    fetchTrailer(category, data.id);
     setMovie(data);
-  };
-
-  // //Peticion para el trailer
-  const fetchTrailer = async (category, id) => {
-    const { data } = await axios.get(`${API_URL}/${category}/${id}/videos?`, {
-      params: {
-        api_key: API_KEY,
-        language: "en-US",
-      },
-    });
-    const trailerData = data.results.find(
-      (video) => video.name === "Official Trailer"
-    );
-    setTrailer(trailerData ? trailerData : data.results[0]);
-  };
-
-  const fetchProviders = async (id) => {
-    const {
-      data: { results },
-    } = await axios.get(`${API_URL}/movie/${id}/watch/providers`, {
-      params: {
-        api_key: API_KEY,
-      },
-    });
-
-    setProviders(results);
   };
 
   useEffect(() => {
     fetchMovie(category, id);
-    fetchProviders(id);
   }, [id, category]);
 
   // console.log(movie);
@@ -98,7 +66,6 @@ const MoviePage = ({ IMAGE_PATH }) => {
           <div className="overview-container">
             <p className="overview">{movie.overview}</p>
           </div>
-          <Providers providers={providers} />
           <Cast
             category={category}
             id={id}
@@ -109,7 +76,7 @@ const MoviePage = ({ IMAGE_PATH }) => {
       </div>
       <p>Trailer</p>
       <div className="trailer-container">
-        <Trailer trailer={trailer} />
+        <Trailer category={category} id={id} />
       </div>
       <MoviesContainer
         title={`Related to "${movie.title || movie.name}"`}

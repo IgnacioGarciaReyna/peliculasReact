@@ -1,7 +1,31 @@
-import React, { Fragment } from "react";
+import axios from "axios";
+import React, { Fragment, useEffect, useState } from "react";
 import YouTube from "react-youtube";
 
-const Trailer = ({ trailer }) => {
+const Trailer = ({ category, id }) => {
+  const [trailer, setTrailer] = useState(null);
+
+  const API_URL = "https://api.themoviedb.org/3";
+  const API_KEY = "77ac9b9acb030fb65e067b31a773b067";
+
+  // //Peticion para el trailer
+  const fetchTrailer = async (category, id) => {
+    const { data } = await axios.get(`${API_URL}/${category}/${id}/videos?`, {
+      params: {
+        api_key: API_KEY,
+        language: "en-US",
+      },
+    });
+    const trailerData = data.results.find(
+      (video) => video.name === "Official Trailer"
+    );
+    setTrailer(trailerData ? trailerData : data.results[0]);
+  };
+
+  useEffect(() => {
+    fetchTrailer(category, id);
+  }, [category, id]);
+
   return (
     <Fragment>
       {trailer ? (
@@ -13,19 +37,8 @@ const Trailer = ({ trailer }) => {
             className="trailer-reproductor"
             containerClassName={"youtube-container"}
             opts={{
-              // Tomado de youtube react
               width: "600px",
               height: "100%",
-              playerVars: {
-                autoplay: 0,
-                controls: 0,
-                cc_load_policy: 0,
-                fs: 0,
-                iv_load_policy: 0,
-                modestbranding: 0,
-                rel: 0,
-                showinfo: 0,
-              },
             }}
           />
         </Fragment>
