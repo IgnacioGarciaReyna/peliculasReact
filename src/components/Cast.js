@@ -9,21 +9,17 @@ const Cast = ({ category, id, API_URL, API_KEY }) => {
   const IMG_URL = "https://image.tmdb.org/t/p/w500/";
   const relevantJobs = [
     "Producer",
-    "Co-Producer",
     "Screenplay",
     "Director",
     "Director of Photography",
     "Editor",
-    "Executive Producer",
     "Original Music Composer",
     "Writer",
-    "Music Producer",
     "Special Effects",
-    "Novel",
     "Script",
-    "Art Direction",
-    "Sound Editor",
     "Musician",
+    "Theme Song Performance",
+    "Executive Producer",
   ];
 
   const fetchCast = async (category, id) => {
@@ -39,7 +35,7 @@ const Cast = ({ category, id, API_URL, API_KEY }) => {
 
   useEffect(() => {
     fetchCast(category, id);
-  }, []);
+  }, [id]);
 
   return (
     <div className="cast">
