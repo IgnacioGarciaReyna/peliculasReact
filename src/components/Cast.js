@@ -1,8 +1,14 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import emptyPicture from "./../assets/img/blank-profile-picture.png";
 
-const Cast = ({ title, cast }) => {
+const Cast = ({ category, id, API_URL, API_KEY }) => {
+  const [cast, setCast] = useState({});
+  const [crew, setCrew] = useState({});
+
   let principalCast = [];
+  let principalCrew = [];
+
   const IMG_URL = "https://image.tmdb.org/t/p/w500/";
   const relevantJobs = [
     "Producer",
@@ -23,25 +29,29 @@ const Cast = ({ title, cast }) => {
     "Musician",
   ];
 
+  const fetchCast = async (category, id) => {
+    const data = await axios.get(`${API_URL}/${category}/${id}/credits`, {
+      params: {
+        api_key: API_KEY,
+        language: "en-US",
+      },
+    });
+    principalCast = data.data.cast.filter((a, i) => i < 10);
+    principalCrew = data.data.crew.filter((a) => relevantJobs.includes(a.job));
+    setCast(principalCast);
+    setCrew(principalCrew);
+  };
 
-  if (cast[0] && cast[0].character) {
-    principalCast = cast.filter((a, i) => i < 10);
-  } else if (cast[0] && cast[0].job) {
-    principalCast = cast.filter((a) => relevantJobs.includes(a.job));
-  }
+  useEffect(() => {
+    fetchCast(category, id);
+  }, []);
 
   return (
     <div className="cast">
-      <p>{title}</p>
       <div className="cast-container">
-        {principalCast[0]
-          ? principalCast.map((actor) => (
-              <div
-                className="cast-card"
-                key={
-                  actor.job ? actor.id + actor.job : actor.id + actor.character
-                }
-              >
+        {cast[0]
+          ? cast.map((actor) => (
+              <div className="cast-card" key={actor.id + actor.character}>
                 <div className="cast-img-container">
                   <img
                     className="cast-img"
@@ -55,7 +65,28 @@ const Cast = ({ title, cast }) => {
                   />
                 </div>
                 <p className="cast-name">{actor.name}</p>
-                {actor.job ? <p className="cast-name"> {actor.job} </p> : null}
+              </div>
+            ))
+          : null}
+      </div>
+      <div className="cast-container">
+        {crew[0]
+          ? crew.map((worker) => (
+              <div className="cast-card" key={worker.id + worker.job}>
+                <div className="cast-img-container">
+                  <img
+                    className="cast-img"
+                    width="80px"
+                    src={
+                      worker.profile_path
+                        ? `${IMG_URL}${worker.profile_path}`
+                        : emptyPicture
+                    }
+                    alt={worker.name}
+                  />
+                </div>
+                <p className="cast-name">{worker.name}</p>
+                <p className="cast-name"> {worker.job} </p>
               </div>
             ))
           : null}

@@ -17,8 +17,6 @@ const MoviePage = ({
   setMovies,
 }) => {
   const [providers, setProviders] = useState({});
-  const [cast, setCast] = useState({});
-  const [crew, setCrew] = useState({});
   const { category, id } = useParams();
 
   const fetchRecomendations = async (category, id) => {
@@ -45,22 +43,10 @@ const MoviePage = ({
     setProviders(results);
   };
 
-  const fetchCast = async (category, id) => {
-    const data = await axios.get(`${API_URL}/${category}/${id}/credits`, {
-      params: {
-        api_key: API_KEY,
-        language: "en-US",
-      },
-    });
-
-    setCast(data.data.cast);
-    setCrew(data.data.crew);
-  };
-
   fetchMovie(category, id);
   fetchRecomendations(category, id);
   fetchProviders(id);
-  fetchCast(category, id);
+
   // console.log(movie);
   return (
     <div className="home-container">
@@ -98,8 +84,12 @@ const MoviePage = ({
             <p className="overview">{movie.overview}</p>
           </div>
           <Providers providers={providers} />
-          <Cast title={"Cast"} cast={cast} />
-          <Cast title={"Crew"} cast={crew} />
+          <Cast
+            category={category}
+            id={id}
+            API_URL={API_URL}
+            API_KEY={API_KEY}
+          />
         </div>
       </div>
       <p>Trailer</p>
