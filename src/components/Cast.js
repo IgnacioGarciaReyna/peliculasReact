@@ -1,4 +1,5 @@
 import React from "react";
+import emptyPicture from "./../assets/img/blank-profile-picture.png";
 
 const Cast = ({ title, cast }) => {
   let principalCast = [];
@@ -17,12 +18,18 @@ const Cast = ({ title, cast }) => {
         {principalCast[0]
           ? principalCast.map((actor) => (
               <div className="cast-card" key={actor.id}>
-                <img
-                  className="cast-img"
-                  width="80px"
-                  src={`${IMG_URL}${actor.profile_path}`}
-                  alt={actor.name}
-                />
+                <div className="cast-img-container">
+                  <img
+                    className="cast-img"
+                    width="80px"
+                    src={
+                      actor.profile_path
+                        ? `${IMG_URL}${actor.profile_path}`
+                        : emptyPicture
+                    }
+                    alt={actor.name}
+                  />
+                </div>
                 <p className="cast-name">{actor.name}</p>
                 {actor.job ? <p className="cast-name"> {actor.job} </p> : null}
               </div>
