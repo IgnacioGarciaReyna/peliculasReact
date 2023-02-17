@@ -6,9 +6,6 @@ const Cast = ({ category, id, API_URL, API_KEY }) => {
   const [cast, setCast] = useState({});
   const [crew, setCrew] = useState({});
 
-  let principalCast = [];
-  let principalCrew = [];
-
   const IMG_URL = "https://image.tmdb.org/t/p/w500/";
   const relevantJobs = [
     "Producer",
@@ -36,10 +33,8 @@ const Cast = ({ category, id, API_URL, API_KEY }) => {
         language: "en-US",
       },
     });
-    principalCast = data.data.cast.filter((a, i) => i < 10);
-    principalCrew = data.data.crew.filter((a) => relevantJobs.includes(a.job));
-    setCast(principalCast);
-    setCrew(principalCrew);
+    setCast(data.data.cast.filter((a, i) => i < 10));
+    setCrew(data.data.crew.filter((a) => relevantJobs.includes(a.job)));
   };
 
   useEffect(() => {
