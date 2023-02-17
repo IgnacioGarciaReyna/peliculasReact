@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Stars from "./Stars";
 
 // Import Swiper React components
@@ -10,8 +10,41 @@ import "swiper/css/navigation";
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper";
 import { Link } from "react-router-dom";
+import MoviesContainer from "./MoviesContainer";
+import axios from "axios";
 
-const Home = ({ movies, IMAGE_PATH }) => {
+const Home = ({ IMAGE_PATH }) => {
+  const [movies, setMovies] = useState([]);
+
+  const API_URL = "https://api.themoviedb.org/3";
+  const API_KEY = "77ac9b9acb030fb65e067b31a773b067";
+
+
+  //Strings para el fetch de varias Movies
+  const upcomingMoviesType = "/movie/upcoming";
+  const discoverMoviesType = "/discover/movie";
+  const topRatedMoviesType = "/movie/top_rated";
+  const popularTvType = "/tv/popular";
+  const topRatedTvType = "/tv/top_rated";
+
+  //Petición a la API
+  const fetchMovies = async (type, searchKey) => {
+    const {
+      data: { results },
+    } = await axios.get(`${API_URL}${type}`, {
+      params: {
+        api_key: API_KEY,
+        query: searchKey,
+      },
+    });
+
+    setMovies(results);
+  };
+
+  useEffect(() => {
+    fetchMovies(upcomingMoviesType);
+  }, []);
+
   return (
     <div className="home-container">
       <Swiper
@@ -58,6 +91,27 @@ const Home = ({ movies, IMAGE_PATH }) => {
           </SwiperSlide>
         ))}
       </Swiper>
+
+      <MoviesContainer
+        title={"Discover Movies"}
+        moviesType={discoverMoviesType}
+        searchKey={""}
+      />
+      <MoviesContainer
+        title={"Top Rated Movies"}
+        moviesType={topRatedMoviesType}
+        searchKey={""}
+      />
+      <MoviesContainer
+        title={"Popular Series"}
+        moviesType={popularTvType}
+        searchKey={""}
+      />
+      <MoviesContainer
+        title={"Top Rated Series"}
+        moviesType={topRatedTvType}
+        searchKey={""}
+      />
     </div>
   );
 };

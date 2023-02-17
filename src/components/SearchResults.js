@@ -3,35 +3,25 @@ import { useParams } from "react-router-dom";
 import MovieCard from "./MovieCard";
 import MoviesContainer from "./MoviesContainer";
 
-const SearchResults = ({
-  searchMoviesType,
-  searchSeriesType,
-  fetchMovies,
-  movies,
-  series,
-  URL_IMAGE,
-}) => {
+const SearchResults = ({}) => {
   const { key } = useParams();
-  fetchMovies(searchMoviesType, key);
-  fetchMovies(searchSeriesType, key);
+  //Strings para el fetch de varias Movies
+
+  const searchMoviesType = "/search/movie";
+  const searchSeriesType = "/search/tv";
 
   return (
     <div className="home-container">
       <MoviesContainer
         title={`Results for "${key}" in films`}
-        movies={movies}
-        URL_IMAGE={URL_IMAGE}
+        moviesType={searchMoviesType}
+        searchKey={key}
       />
       <MoviesContainer
         title={`Results for "${key}" in TV series`}
-        movies={series}
-        URL_IMAGE={URL_IMAGE}
+        moviesType={searchSeriesType}
+        searchKey={key}
       />
-      {/* <div className="search-results-container">
-        {movies.map((movie) => (
-          <MovieCard movie={movie} URL_IMAGE={URL_IMAGE} />
-        ))}
-      </div> */}
     </div>
   );
 };

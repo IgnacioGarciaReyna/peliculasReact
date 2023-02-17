@@ -3,32 +3,46 @@ import React, { Fragment, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Cast from "./Cast";
 import Genres from "./Genres";
+import MoviesContainer from "./MoviesContainer";
 import Providers from "./Providers";
 import Stars from "./Stars";
 import Trailer from "./Trailer";
 
-const MoviePage = ({
-  movie,
-  fetchMovie,
-  IMAGE_PATH,
-  trailer,
-  API_KEY,
-  API_URL,
-  setMovies,
-}) => {
+const MoviePage = ({ IMAGE_PATH }) => {
+  const API_URL = "https://api.themoviedb.org/3";
+  const API_KEY = "77ac9b9acb030fb65e067b31a773b067";
+  //Variables de estado
+  const [movie, setMovie] = useState({ title: "Loading Movies" });
+
   const [providers, setProviders] = useState({});
+
+  const [trailer, setTrailer] = useState(null);
   const { category, id } = useParams();
 
-  const fetchRecomendations = async (category, id) => {
-    const {
-      data: { results },
-    } = await axios.get(`${API_URL}/${category}/${id}/recommendations`, {
+  //Petición de un solo objeto para mostrar en reproductor de video
+  const fetchMovie = async (category, id) => {
+    const { data } = await axios.get(`${API_URL}/${category}/${id}`, {
       params: {
         api_key: API_KEY,
       },
     });
 
-    setMovies(results);
+    fetchTrailer(category, data.id);
+    setMovie(data);
+  };
+
+  // //Peticion para el trailer
+  const fetchTrailer = async (category, id) => {
+    const { data } = await axios.get(`${API_URL}/${category}/${id}/videos?`, {
+      params: {
+        api_key: API_KEY,
+        language: "en-US",
+      },
+    });
+    const trailerData = data.results.find(
+      (video) => video.name === "Official Trailer"
+    );
+    setTrailer(trailerData ? trailerData : data.results[0]);
   };
 
   const fetchProviders = async (id) => {
@@ -43,9 +57,10 @@ const MoviePage = ({
     setProviders(results);
   };
 
-  fetchMovie(category, id);
-  fetchRecomendations(category, id);
-  fetchProviders(id);
+  useEffect(() => {
+    fetchMovie(category, id);
+    fetchProviders(id);
+  }, [id]);
 
   // console.log(movie);
   return (
@@ -96,6 +111,11 @@ const MoviePage = ({
       <div className="trailer-container">
         <Trailer trailer={trailer} />
       </div>
+      <MoviesContainer
+        title={`Related to "${movie.title || movie.name}"`}
+        moviesType={`/${category}/${id}/recommendations`}
+        searchKey={""}
+      />
     </div>
   );
 };

@@ -2,7 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import emptyPoster from "./../assets/img/istock-photo.jpg";
 
-const MovieCard = ({ movie, URL_IMAGE }) => {
+const MovieCard = ({ movie }) => {
+  const URL_IMAGE = "https://image.tmdb.org/t/p/original";
   return (
     <Link
       to={movie.title ? `/movie/${movie.id}` : `/tv/${movie.id}`}
