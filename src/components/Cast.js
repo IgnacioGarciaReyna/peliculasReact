@@ -48,7 +48,7 @@ const Cast = ({ category, id, API_URL, API_KEY }) => {
                     className="cast-img"
                     width="80px"
                     src={
-                      actor.profile_path
+                      actor.profile_path !== null
                         ? `${IMG_URL}${actor.profile_path}`
                         : emptyPicture
                     }
@@ -69,7 +69,7 @@ const Cast = ({ category, id, API_URL, API_KEY }) => {
                     className="cast-img"
                     width="80px"
                     src={
-                      worker.profile_path
+                      worker.profile_path !== null
                         ? `${IMG_URL}${worker.profile_path}`
                         : emptyPicture
                     }
