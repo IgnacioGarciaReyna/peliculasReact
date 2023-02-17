@@ -6,8 +6,6 @@ import Home from "./components/Home";
 import SearchResults from "./components/SearchResults";
 
 function App() {
-  
-  
   const IMAGE_PATH = "https://image.tmdb.org/t/p/original";
 
   return (
@@ -27,9 +25,7 @@ function App() {
           element={
             <div>
               <Nav />
-              <MoviePage
-                IMAGE_PATH={IMAGE_PATH}
-              />
+              <MoviePage IMAGE_PATH={IMAGE_PATH} />
             </div>
           }
         />

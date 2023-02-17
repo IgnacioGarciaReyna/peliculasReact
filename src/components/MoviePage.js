@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { Fragment, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Cast from "./Cast";
 import Genres from "./Genres";
@@ -60,7 +60,7 @@ const MoviePage = ({ IMAGE_PATH }) => {
   useEffect(() => {
     fetchMovie(category, id);
     fetchProviders(id);
-  }, [id]);
+  }, [id, category]);
 
   // console.log(movie);
   return (
@@ -74,7 +74,7 @@ const MoviePage = ({ IMAGE_PATH }) => {
         <div className="background-cover">
           <div className="movie-title-container">
             <p className="home-movie-title">
-              {category == "movie" ? movie.title : movie.name}
+              {category === "movie" ? movie.title : movie.name}
             </p>
             <Stars vote_average={movie.vote_average} />
             <Genres genres={movie.genres} />

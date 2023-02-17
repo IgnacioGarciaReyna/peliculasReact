@@ -35,7 +35,7 @@ const Cast = ({ category, id, API_URL, API_KEY }) => {
 
   useEffect(() => {
     fetchCast(category, id);
-  }, [id]);
+  }, [category, id]);
 
   return (
     <div className="cast">

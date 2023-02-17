@@ -19,7 +19,6 @@ const Home = ({ IMAGE_PATH }) => {
   const API_URL = "https://api.themoviedb.org/3";
   const API_KEY = "77ac9b9acb030fb65e067b31a773b067";
 
-
   //Strings para el fetch de varias Movies
   const upcomingMoviesType = "/movie/upcoming";
   const discoverMoviesType = "/discover/movie";
@@ -62,7 +61,7 @@ const Home = ({ IMAGE_PATH }) => {
         className="mySwiper"
       >
         {movies.map((movie) => (
-          <SwiperSlide>
+          <SwiperSlide key={movie.id}>
             <div
               className="movie-page-container"
               style={{
