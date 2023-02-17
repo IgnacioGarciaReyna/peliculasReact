@@ -9,15 +9,18 @@ const Cast = ({ title, cast }) => {
     principalCast.push(cast[i]);
   }
 
-  console.log(cast);
-
   return (
     <div className="cast">
       <p>{title}</p>
       <div className="cast-container">
         {principalCast[0]
           ? principalCast.map((actor) => (
-              <div className="cast-card" key={actor.id}>
+              <div
+                className="cast-card"
+                key={
+                  actor.job ? actor.id + actor.job : actor.id + actor.character
+                }
+              >
                 <div className="cast-img-container">
                   <img
                     className="cast-img"
