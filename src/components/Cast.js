@@ -30,7 +30,25 @@ const Cast = ({ category, id, API_URL, API_KEY }) => {
       },
     });
     setCast(data.data.cast.filter((a, i) => i < 10));
-    setCrew(data.data.crew.filter((a) => relevantJobs.includes(a.job)));
+
+    const relevantCrew = data.data.crew.filter((a) =>
+      relevantJobs.includes(a.job)
+    );
+    const workersWithJobs = [];
+    relevantCrew.forEach((worker) => {
+      if (!workersWithJobs.map((p) => p.name).includes(worker.name)) {
+        const newWorker = Object();
+        newWorker.name = worker.name;
+        newWorker.id = worker.id;
+        newWorker.profile_path = worker.profile_path;
+        newWorker.jobs = relevantCrew
+          .filter((person) => person.name === worker.name)
+          .map((sameWorker) => sameWorker.job);
+        workersWithJobs.push(newWorker);
+      }
+    });
+    console.log(workersWithJobs);
+    setCrew(workersWithJobs);
   };
 
   useEffect(() => {
@@ -77,7 +95,9 @@ const Cast = ({ category, id, API_URL, API_KEY }) => {
                   />
                 </div>
                 <p className="cast-name">{worker.name}</p>
-                <p className="cast-name"> {worker.job} </p>
+                {worker.jobs.map((job) => (
+                  <p className="cast-name"> {job} </p>
+                ))}
               </div>
             ))
           : null}
