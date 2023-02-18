@@ -41,30 +41,29 @@ const MoviePage = ({ IMAGE_PATH }) => {
       >
         <div className="background-cover">
           <div className="movie-title-container">
+            <p>
+              {movie.release_date ? movie.release_date : movie.first_air_date}
+            </p>
             <p className="home-movie-title">
               {category === "movie" ? movie.title : movie.name}
             </p>
-            <p>{movie.tagline}</p>
+            <p className="movie-tagline">{movie.tagline}</p>
             <Stars vote_average={movie.vote_average} />
             <Genres genres={movie.genres} />
           </div>
-          <p>
-            Released:{" "}
-            {movie.release_date ? movie.release_date : movie.first_air_date}
-          </p>
           {movie.number_of_episodes ? (
             <div>
               <p>{movie.number_of_episodes} episodes</p>
               <p>{movie.number_of_seasons} seasons</p>
             </div>
           ) : null}
-          {movie.created_by ? (
+          {/* {movie.created_by ? (
             <div className="creators">
               <Cast title={"Creators"} cast={movie.created_by} />
             </div>
-          ) : null}
-          <div className="overview-container">
-            <p className="overview">{movie.overview}</p>
+          ) : null} */}
+          <div className="home-overview-button-container">
+            <p className="movie-overview">{movie.overview}</p>
           </div>
           <Cast
             category={category}

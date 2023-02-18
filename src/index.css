@@ -85,7 +85,6 @@ body {
   height: 22.5rem;
   width: auto;
   border-radius: 10px;
-  /* margin: 0 0 1rem 0; */
 }
 
 .home-button {
@@ -215,6 +214,18 @@ a {
 
 .movie-title-container {
   width: auto;
+  margin: 0rem 0rem 0rem 2rem;
+}
+
+.movie-tagline {
+  font-size: 30px;
+  font-weight: 200;
+}
+
+.movie-overview {
+  font-size: 20px;
+  font-weight: 300;
+  margin: 0 0 2rem 0;
 }
 
 .trailer-container {
