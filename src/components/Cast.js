@@ -81,7 +81,7 @@ const Cast = ({ category, id, API_URL, API_KEY }) => {
       <div className="cast-container">
         {crew[0]
           ? crew.map((worker) => (
-              <div className="cast-card" key={worker.id + worker.job}>
+              <div className="cast-card" key={worker.id + worker.name}>
                 <div className="cast-img-container">
                   <img
                     className="cast-img"
@@ -96,7 +96,9 @@ const Cast = ({ category, id, API_URL, API_KEY }) => {
                 </div>
                 <p className="cast-name">{worker.name}</p>
                 {worker.jobs.map((job) => (
-                  <p className="cast-name"> {job} </p>
+                  <p className="cast-name" key={worker.name + job}>
+                    {job}
+                  </p>
                 ))}
               </div>
             ))
