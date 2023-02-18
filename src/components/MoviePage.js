@@ -44,18 +44,18 @@ const MoviePage = ({ IMAGE_PATH }) => {
             <p className="home-movie-title">
               {category === "movie" ? movie.title : movie.name}
             </p>
+            <p>{movie.tagline}</p>
             <Stars vote_average={movie.vote_average} />
             <Genres genres={movie.genres} />
           </div>
-          <p>{movie.tagline}</p>
           <p>
-            Release date:
+            Released:{" "}
             {movie.release_date ? movie.release_date : movie.first_air_date}
           </p>
           {movie.number_of_episodes ? (
             <div>
-              <p>number_of_episodes: {movie.number_of_episodes}</p>{" "}
-              <p>number_of_seasons: {movie.number_of_seasons} </p>
+              <p>{movie.number_of_episodes} episodes</p>
+              <p>{movie.number_of_seasons} seasons</p>
             </div>
           ) : null}
           {movie.created_by ? (
@@ -74,7 +74,6 @@ const MoviePage = ({ IMAGE_PATH }) => {
           />
         </div>
       </div>
-      <p>Trailer</p>
       <div className="trailer-container">
         <Trailer category={category} id={id} />
       </div>
