@@ -36,7 +36,7 @@ const MoviesContainer = ({ title, moviesType, searchKey }) => {
     } else {
       fetchMovies(moviesType, searchKey);
     }
-  }, []);
+  }, [moviesType]);
 
   return (
     <div className="container-movies">
