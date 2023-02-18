@@ -50,8 +50,8 @@ const Home = ({ IMAGE_PATH }) => {
         spaceBetween={30}
         centeredSlides={true}
         autoplay={{
-          delay: 100000,
-          disableOnInteraction: false,
+          delay: 5000,
+          disableOnInteraction: true,
         }}
         pagination={{
           clickable: true,
