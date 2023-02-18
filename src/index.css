@@ -42,7 +42,7 @@ body {
     rgba(83, 100, 141, 0) 90%
   );
 
-  height: 85vh;
+  height: 100%;
   width: 100%;
   padding: 1rem 0 0 3rem;
 }

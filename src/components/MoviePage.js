@@ -39,7 +39,7 @@ const MoviePage = ({ IMAGE_PATH }) => {
           backgroundImage: `url("${IMAGE_PATH}${movie.backdrop_path}")`,
         }}
       >
-        <div className="background-cover">
+        <div className="background-cover-container">
           <div className="movie-title-container">
             <p>
               {movie.release_date ? movie.release_date : movie.first_air_date}
