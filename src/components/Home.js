@@ -50,7 +50,7 @@ const Home = ({ IMAGE_PATH }) => {
         spaceBetween={30}
         centeredSlides={true}
         autoplay={{
-          delay: 3000,
+          delay: 100000,
           disableOnInteraction: false,
         }}
         pagination={{
@@ -58,32 +58,36 @@ const Home = ({ IMAGE_PATH }) => {
         }}
         navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
-        className="mySwiper"
+        className="mySwiper home-movie-container"
       >
         {movies.map((movie) => (
           <SwiperSlide key={movie.id}>
             <div
-              className="movie-page-container"
+              className="movie-background-container"
               style={{
                 backgroundImage: `url("${IMAGE_PATH}${movie.backdrop_path}")`,
               }}
             >
-              <div className="background-cover">
+              <div className="background-cover-container">
                 <p>{movie.release_date}</p>
                 <p className="home-movie-title">{movie.title} </p>
-                <img
-                  className="home-movie-poster"
-                  src={`${IMAGE_PATH}${movie.poster_path}`}
-                  alt=""
-                />
                 <Stars vote_average={movie.vote_average} />
-                <div className="overview-container">
-                  <p className="home-overview">{movie.overview}</p>
-                </div>
-                <div>
-                  <Link to={`/movie/${movie.id}`}>
-                    <button>Go to details</button>
-                  </Link>
+                <div className="home-poster-overview-container">
+                  <div className="home-img-stars-container">
+                    <img
+                      className="home-movie-poster"
+                      src={`${IMAGE_PATH}${movie.poster_path}`}
+                      alt=""
+                    />
+                  </div>
+                  <div className="home-overview-button-container">
+                    <p className="home-overview">{movie.overview}</p>
+                    <div>
+                      <Link to={`/movie/${movie.id}`}>
+                        <button className="home-button">Go to details</button>
+                      </Link>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
