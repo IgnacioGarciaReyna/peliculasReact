@@ -52,9 +52,11 @@ const MoviePage = ({ IMAGE_PATH }) => {
             <Genres genres={movie.genres} />
           </div>
           {movie.number_of_episodes ? (
-            <div>
-              <p>{movie.number_of_episodes} episodes</p>
-              <p>{movie.number_of_seasons} seasons</p>
+            <div className="serie-data-container">
+              <p>
+                {movie.number_of_seasons} seasons - {movie.number_of_episodes}{" "}
+                episodes
+              </p>
             </div>
           ) : null}
           {/* {movie.created_by ? (

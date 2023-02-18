@@ -207,7 +207,7 @@ a {
 /* CSS Movie Page */
 
 .movie-page-container {
-  height: 100%;
+  height: 180vh;
   background-size: cover;
   border-radius: 30px;
 }
@@ -228,6 +228,10 @@ a {
   margin: 0 0 2rem 0;
 }
 
+.serie-data-container{
+  margin: 0 0 0 2rem;
+}
+
 .trailer-container {
   width: 100%;
   background-color: black;
@@ -242,9 +246,14 @@ a {
 }
 
 /* CSS Cast */
+.cast-component-container{
+  margin: 0 0 2rem 2rem;
+}
+
 .cast-container {
-  width: auto;
+  width: 60vw;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   align-items: start;
   justify-content: start;
@@ -284,7 +293,7 @@ a {
   flex-direction: row;
   align-items: center;
   justify-content: start;
-  margin: 1rem 0 3rem 0;
+  margin: 1rem 0 1rem 0;
 }
 
 .genre-name-container {

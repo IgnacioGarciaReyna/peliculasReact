@@ -29,7 +29,7 @@ const Cast = ({ category, id, API_URL, API_KEY }) => {
         language: "en-US",
       },
     });
-    setCast(data.data.cast.filter((a, i) => i < 10));
+    setCast(data.data.cast.filter((a, i) => i < 16));
 
     const relevantCrew = data.data.crew.filter((a) =>
       relevantJobs.includes(a.job)
@@ -47,7 +47,6 @@ const Cast = ({ category, id, API_URL, API_KEY }) => {
         workersWithJobs.push(newWorker);
       }
     });
-    console.log(workersWithJobs);
     setCrew(workersWithJobs);
   };
 
@@ -56,7 +55,8 @@ const Cast = ({ category, id, API_URL, API_KEY }) => {
   }, [category, id]);
 
   return (
-    <div className="cast">
+    <div className="cast-component-container">
+      <p>Cast</p>
       <div className="cast-container">
         {cast[0]
           ? cast.map((actor) => (
@@ -78,6 +78,7 @@ const Cast = ({ category, id, API_URL, API_KEY }) => {
             ))
           : null}
       </div>
+      <p>Crew</p>
       <div className="cast-container">
         {crew[0]
           ? crew.map((worker) => (
