@@ -43,7 +43,6 @@ body {
   );
 
   height: 100%;
-  width: 100%;
   padding: 1rem 0 0 3rem;
 }
 
@@ -207,19 +206,25 @@ a {
 /* CSS Movie Page */
 
 .movie-page-container {
-  height: 180vh;
+  height: auto;
   background-size: cover;
   border-radius: 30px;
 }
 
 .movie-title-container {
   width: auto;
-  margin: 0rem 0rem 0rem 2rem;
+  margin: 1rem 0rem 3rem 3rem;
 }
 
 .movie-tagline {
   font-size: 30px;
   font-weight: 200;
+}
+
+.movie-overview-container {
+  height: auto;
+  width: 50vw;
+  margin: 0rem 3rem;
 }
 
 .movie-overview {
@@ -228,7 +233,8 @@ a {
   margin: 0 0 2rem 0;
 }
 
-.serie-data-container{
+
+.serie-data-container {
   margin: 0 0 0 2rem;
 }
 
@@ -246,18 +252,19 @@ a {
 }
 
 /* CSS Cast */
-.cast-component-container{
+.cast-component-container {
   margin: 0 0 2rem 2rem;
+  display: flex;
+  flex-direction: row;
 }
 
 .cast-container {
-  width: 60vw;
+  width: 40vw;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   align-items: start;
   justify-content: start;
-  margin: 2rem 0;
 }
 
 .cast-card {
@@ -267,7 +274,7 @@ a {
   align-items: center;
   width: 90px;
   height: auto;
-  margin: 0 5px;
+  margin: 5px 5px;
 }
 
 .cast-img-container {

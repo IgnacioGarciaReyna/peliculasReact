@@ -56,54 +56,58 @@ const Cast = ({ category, id, API_URL, API_KEY }) => {
 
   return (
     <div className="cast-component-container">
-      <p>Cast</p>
-      <div className="cast-container">
-        {cast[0]
-          ? cast.map((actor) => (
-              <div className="cast-card" key={actor.id + actor.character}>
-                <div className="cast-img-container">
-                  <img
-                    className="cast-img"
-                    width="80px"
-                    src={
-                      actor.profile_path !== null
-                        ? `${IMG_URL}${actor.profile_path}`
-                        : emptyPicture
-                    }
-                    alt={actor.name}
-                  />
+      <div className="cast-section">
+        <p>Cast</p>
+        <div className="cast-container">
+          {cast[0]
+            ? cast.map((actor) => (
+                <div className="cast-card" key={actor.id + actor.character}>
+                  <div className="cast-img-container">
+                    <img
+                      className="cast-img"
+                      width="80px"
+                      src={
+                        actor.profile_path !== null
+                          ? `${IMG_URL}${actor.profile_path}`
+                          : emptyPicture
+                      }
+                      alt={actor.name}
+                    />
+                  </div>
+                  <p className="cast-name">{actor.name}</p>
                 </div>
-                <p className="cast-name">{actor.name}</p>
-              </div>
-            ))
-          : null}
+              ))
+            : null}
+        </div>
       </div>
-      <p>Crew</p>
-      <div className="cast-container">
-        {crew[0]
-          ? crew.map((worker) => (
-              <div className="cast-card" key={worker.id + worker.name}>
-                <div className="cast-img-container">
-                  <img
-                    className="cast-img"
-                    width="80px"
-                    src={
-                      worker.profile_path !== null
-                        ? `${IMG_URL}${worker.profile_path}`
-                        : emptyPicture
-                    }
-                    alt={worker.name}
-                  />
+      <div className="cast-section">
+        <p>Crew</p>
+        <div className="cast-container">
+          {crew[0]
+            ? crew.map((worker) => (
+                <div className="cast-card" key={worker.id + worker.name}>
+                  <div className="cast-img-container">
+                    <img
+                      className="cast-img"
+                      width="80px"
+                      src={
+                        worker.profile_path !== null
+                          ? `${IMG_URL}${worker.profile_path}`
+                          : emptyPicture
+                      }
+                      alt={worker.name}
+                    />
+                  </div>
+                  <p className="cast-name">{worker.name}</p>
+                  {worker.jobs.map((job) => (
+                    <p className="cast-name" key={worker.name + job}>
+                      {job}
+                    </p>
+                  ))}
                 </div>
-                <p className="cast-name">{worker.name}</p>
-                {worker.jobs.map((job) => (
-                  <p className="cast-name" key={worker.name + job}>
-                    {job}
-                  </p>
-                ))}
-              </div>
-            ))
-          : null}
+              ))
+            : null}
+        </div>
       </div>
     </div>
   );

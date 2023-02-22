@@ -64,19 +64,27 @@ const MoviePage = ({ IMAGE_PATH }) => {
               <Cast title={"Creators"} cast={movie.created_by} />
             </div>
           ) : null} */}
-          <div className="home-overview-button-container">
+          <div className="movie-overview-container">
             <p className="movie-overview">{movie.overview}</p>
           </div>
-          <Cast
-            category={category}
-            id={id}
-            API_URL={API_URL}
-            API_KEY={API_KEY}
-          />
+          <Trailer category={category} id={id} />
         </div>
       </div>
-      <div className="trailer-container">
-        <Trailer category={category} id={id} />
+      <div
+        className="movie-page-container"
+        style={{
+          backgroundImage: `url("${IMAGE_PATH}${
+            movie.belongs_to_collection
+              ? movie.belongs_to_collection.backdrop_path
+                ? movie.belongs_to_collection.backdrop_path
+                : movie.belongs_to_collection.poster_path
+                ? movie.belongs_to_collection.poster_path
+                : movie.backdrop_path
+              : movie.backdrop_path
+          }")`,
+        }}
+      >
+        <Cast category={category} id={id} API_URL={API_URL} API_KEY={API_KEY} />
       </div>
       <MoviesContainer
         title={`Related to "${movie.title || movie.name}"`}
