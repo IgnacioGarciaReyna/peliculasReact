@@ -233,7 +233,6 @@ a {
   margin: 0 0 2rem 0;
 }
 
-
 .serie-data-container {
   margin: 0 0 0 2rem;
 }
@@ -256,6 +255,12 @@ a {
   margin: 0 0 2rem 2rem;
   display: flex;
   flex-direction: row;
+  align-items: start;
+  justify-content: center;
+}
+
+.cast-section{
+  margin: 3rem 1rem;
 }
 
 .cast-container {

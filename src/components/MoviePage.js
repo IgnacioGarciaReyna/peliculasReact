@@ -84,7 +84,14 @@ const MoviePage = ({ IMAGE_PATH }) => {
           }")`,
         }}
       >
-        <Cast category={category} id={id} API_URL={API_URL} API_KEY={API_KEY} />
+        <div className="background-cover-container">
+          <Cast
+            category={category}
+            id={id}
+            API_URL={API_URL}
+            API_KEY={API_KEY}
+          />
+        </div>
       </div>
       <MoviesContainer
         title={`Related to "${movie.title || movie.name}"`}
