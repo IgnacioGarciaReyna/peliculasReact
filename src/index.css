@@ -208,6 +208,7 @@ a {
 .movie-page-container {
   height: auto;
   background-size: cover;
+  background-position: center;
   border-radius: 30px;
 }
 
@@ -248,7 +249,7 @@ a {
 .trailer-reproductor {
   height: 450px;
   width: 60vw;
-  margin: 0 0 2rem 0;
+  margin: 3rem 0 4rem 0;
 }
 
 .trailer-reproductor > iframe {

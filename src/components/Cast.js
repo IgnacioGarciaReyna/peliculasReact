@@ -29,7 +29,7 @@ const Cast = ({ category, id, API_URL, API_KEY }) => {
         language: "en-US",
       },
     });
-    setCast(data.data.cast.filter((a, i) => i < 16));
+    setCast(data.data.cast.filter((a, i) => a.profile_path && i < 15));
 
     const relevantCrew = data.data.crew.filter((a) =>
       relevantJobs.includes(a.job)
@@ -84,28 +84,30 @@ const Cast = ({ category, id, API_URL, API_KEY }) => {
         <p>Crew</p>
         <div className="cast-container">
           {crew[0]
-            ? crew.map((worker) => (
-                <div className="cast-card" key={worker.id + worker.name}>
-                  <div className="cast-img-container">
-                    <img
-                      className="cast-img"
-                      width="80px"
-                      src={
-                        worker.profile_path !== null
-                          ? `${IMG_URL}${worker.profile_path}`
-                          : emptyPicture
-                      }
-                      alt={worker.name}
-                    />
+            ? crew.map((worker) =>
+                worker.profile_path ? (
+                  <div className="cast-card" key={worker.id + worker.name}>
+                    <div className="cast-img-container">
+                      <img
+                        className="cast-img"
+                        width="80px"
+                        src={
+                          worker.profile_path !== null
+                            ? `${IMG_URL}${worker.profile_path}`
+                            : emptyPicture
+                        }
+                        alt={worker.name}
+                      />
+                    </div>
+                    <p className="cast-name">{worker.name}</p>
+                    {worker.jobs.map((job) => (
+                      <p className="cast-name" key={worker.name + job}>
+                        {job}
+                      </p>
+                    ))}
                   </div>
-                  <p className="cast-name">{worker.name}</p>
-                  {worker.jobs.map((job) => (
-                    <p className="cast-name" key={worker.name + job}>
-                      {job}
-                    </p>
-                  ))}
-                </div>
-              ))
+                ) : null
+              )
             : null}
         </div>
       </div>
