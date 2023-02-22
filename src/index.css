@@ -239,7 +239,6 @@ a {
 
 .trailer-container {
   width: 100%;
-  background-color: black;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -247,7 +246,13 @@ a {
 }
 
 .trailer-reproductor {
-  height: 600px;
+  height: 450px;
+  width: 60vw;
+  margin: 0 0 2rem 0;
+}
+
+.trailer-reproductor > iframe {
+  width: -webkit-fill-available;
 }
 
 /* CSS Cast */
@@ -259,7 +264,7 @@ a {
   justify-content: center;
 }
 
-.cast-section{
+.cast-section {
   margin: 3rem 1rem;
 }
 
@@ -336,4 +341,27 @@ a {
 .search-results-container {
   display: grid;
   grid-template-columns: auto auto auto auto auto;
+}
+
+/* CSS Footer */
+
+#footer {
+  height: 5em;
+}
+
+#footer,
+.footer-content-container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-content-container {
+  color: #fff;
+  height: 100%;
+}
+
+.footer-text {
+  font-size: small;
+  font-weight: 100;
 }

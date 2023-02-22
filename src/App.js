@@ -1,9 +1,10 @@
-import React from "react";
+import React, { Fragment } from "react";
 import Nav from "./components/Nav";
 import MoviePage from "./components/MoviePage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 import SearchResults from "./components/SearchResults";
+import Footer from "./components/Footer";
 
 function App() {
   const IMAGE_PATH = "https://image.tmdb.org/t/p/original";
@@ -17,6 +18,7 @@ function App() {
             <div>
               <Nav />
               <SearchResults />
+              <Footer />
             </div>
           }
         />
@@ -26,6 +28,7 @@ function App() {
             <div>
               <Nav />
               <MoviePage IMAGE_PATH={IMAGE_PATH} />
+              <Footer />
             </div>
           }
         />
@@ -35,6 +38,7 @@ function App() {
             <div>
               <Nav />
               <Home IMAGE_PATH={IMAGE_PATH} />
+              <Footer />
             </div>
           }
         />
