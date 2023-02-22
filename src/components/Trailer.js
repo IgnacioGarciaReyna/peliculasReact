@@ -17,7 +17,7 @@ const Trailer = ({ category, id }) => {
       },
     });
     const trailerData = data.results.find(
-      (video) => video.name === "Official Trailer"
+      (video) => video.name === "Official Trailer" || video.type === "Trailer"
     );
     setTrailer(trailerData ? trailerData : data.results[0]);
   };
@@ -30,8 +30,6 @@ const Trailer = ({ category, id }) => {
     <Fragment>
       {trailer ? (
         <Fragment>
-          <p>{trailer.type}</p>
-          <p>{trailer.name}</p>
           <YouTube
             videoId={trailer.key}
             className="trailer-reproductor"
