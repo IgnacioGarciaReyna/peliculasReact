@@ -67,7 +67,9 @@ const MoviePage = ({ IMAGE_PATH }) => {
           <div className="movie-overview-container">
             <p className="movie-overview">{movie.overview}</p>
           </div>
-          <Trailer category={category} id={id} />
+          <div className="trailer-container">
+            <Trailer category={category} id={id} />
+          </div>
         </div>
       </div>
       <div
