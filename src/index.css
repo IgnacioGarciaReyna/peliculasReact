@@ -111,6 +111,20 @@ body {
 
 /* M */
 @media (max-width: 960px) {
+  .home-poster-overview-container {
+    margin: 0;
+    align-items: start;
+  }
+
+  .home-overview-button-container {
+    width: 45vw;
+  }
+
+  .home-overview {
+    font-size: 22px;
+    font-weight: 300;
+    margin: 2rem 0 2rem 0;
+  }
 }
 
 /* S */
@@ -190,8 +204,8 @@ body {
 
 .img-movie-container {
   cursor: pointer;
-  height: 17.5rem;
-  width: 11.5;
+
+  width: 13vw;
 }
 
 .img-movie {
