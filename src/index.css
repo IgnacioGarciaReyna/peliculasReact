@@ -7,6 +7,7 @@
   --details-color-1: #007aff;
 }
 
+/*  */
 /* CSS Body */
 body {
   background-color: #171718;
@@ -15,6 +16,7 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
+/*  */
 /* CSS Home */
 
 .home-container {
@@ -107,6 +109,23 @@ body {
   border: 3px solid var(--details-color-1);
 }
 
+/* M */
+@media (max-width: 960px) {
+}
+
+/* S */
+@media (max-width: 600px) {
+}
+
+/* XS */
+@media (max-width: 420px) {
+}
+
+/* Landscape */
+@media (orientation: landscape) and (max-width: 960px) and (max-height: 600px) {
+}
+
+/*  */
 /* CSS Movies Container */
 
 .container-movies {
@@ -123,6 +142,23 @@ body {
   margin: 1rem 0 1rem 0;
 }
 
+/* M */
+@media (max-width: 960px) {
+}
+
+/* S */
+@media (max-width: 600px) {
+}
+
+/* XS */
+@media (max-width: 420px) {
+}
+
+/* Landscape */
+@media (orientation: landscape) and (max-width: 960px) and (max-height: 600px) {
+}
+
+/*  */
 /* CSS Movie card */
 .container-movie-card {
   height: auto;
@@ -181,6 +217,23 @@ a {
   color: aliceblue;
 }
 
+/* M */
+@media (max-width: 960px) {
+}
+
+/* S */
+@media (max-width: 600px) {
+}
+
+/* XS */
+@media (max-width: 420px) {
+}
+
+/* Landscape */
+@media (orientation: landscape) and (max-width: 960px) and (max-height: 600px) {
+}
+
+/*  */
 /* CSS Nav */
 
 .navigation-container {
@@ -202,6 +255,23 @@ a {
   cursor: pointer;
 }
 
+/* M */
+@media (max-width: 960px) {
+}
+
+/* S */
+@media (max-width: 600px) {
+}
+
+/* XS */
+@media (max-width: 420px) {
+}
+
+/* Landscape */
+@media (orientation: landscape) and (max-width: 960px) and (max-height: 600px) {
+}
+
+/*  */
 /* CSS Search */
 
 .search-movies-container {
@@ -226,6 +296,23 @@ a {
   cursor: pointer;
 }
 
+/* M */
+@media (max-width: 960px) {
+}
+
+/* S */
+@media (max-width: 600px) {
+}
+
+/* XS */
+@media (max-width: 420px) {
+}
+
+/* Landscape */
+@media (orientation: landscape) and (max-width: 960px) and (max-height: 600px) {
+}
+
+/*  */
 /* CSS Movie Page */
 
 .movie-page-container {
@@ -279,6 +366,23 @@ a {
   width: -webkit-fill-available;
 }
 
+/* M */
+@media (max-width: 960px) {
+}
+
+/* S */
+@media (max-width: 600px) {
+}
+
+/* XS */
+@media (max-width: 420px) {
+}
+
+/* Landscape */
+@media (orientation: landscape) and (max-width: 960px) and (max-height: 600px) {
+}
+
+/*  */
 /* CSS Cast */
 .cast-component-container {
   margin: 0 0 2rem 2rem;
@@ -327,6 +431,23 @@ a {
   text-align: center;
 }
 
+/* M */
+@media (max-width: 960px) {
+}
+
+/* S */
+@media (max-width: 600px) {
+}
+
+/* XS */
+@media (max-width: 420px) {
+}
+
+/* Landscape */
+@media (orientation: landscape) and (max-width: 960px) and (max-height: 600px) {
+}
+
+/*  */
 /* CSS Genres */
 
 .genres-container {
@@ -348,6 +469,23 @@ a {
   font-size: 14px;
 }
 
+/* M */
+@media (max-width: 960px) {
+}
+
+/* S */
+@media (max-width: 600px) {
+}
+
+/* XS */
+@media (max-width: 420px) {
+}
+
+/* Landscape */
+@media (orientation: landscape) and (max-width: 960px) and (max-height: 600px) {
+}
+
+/*  */
 /* CSS Stars */
 .stars-container {
   width: 100%;
@@ -361,12 +499,46 @@ a {
   margin: 0 0.2rem;
 }
 
+/* M */
+@media (max-width: 960px) {
+}
+
+/* S */
+@media (max-width: 600px) {
+}
+
+/* XS */
+@media (max-width: 420px) {
+}
+
+/* Landscape */
+@media (orientation: landscape) and (max-width: 960px) and (max-height: 600px) {
+}
+
+/*  */
 /* CSS Search Results */
 .search-results-container {
   display: grid;
   grid-template-columns: auto auto auto auto auto;
 }
 
+/* M */
+@media (max-width: 960px) {
+}
+
+/* S */
+@media (max-width: 600px) {
+}
+
+/* XS */
+@media (max-width: 420px) {
+}
+
+/* Landscape */
+@media (orientation: landscape) and (max-width: 960px) and (max-height: 600px) {
+}
+
+/*  */
 /* CSS Footer */
 
 #footer {
@@ -388,4 +560,20 @@ a {
 .footer-text {
   font-size: small;
   font-weight: 100;
+}
+
+/* M */
+@media (max-width: 960px) {
+}
+
+/* S */
+@media (max-width: 600px) {
+}
+
+/* XS */
+@media (max-width: 420px) {
+}
+
+/* Landscape */
+@media (orientation: landscape) and (max-width: 960px) and (max-height: 600px) {
 }
