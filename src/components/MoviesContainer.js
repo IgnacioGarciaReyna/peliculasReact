@@ -27,7 +27,11 @@ const MoviesContainer = ({ title, moviesType, searchKey }) => {
       },
     });
 
-    setMovies(results);
+    if (results[0]) {
+      setMovies(results);
+    } else {
+      fetchMovies("/discover/movie");
+    }
   };
 
   useEffect(() => {
@@ -42,7 +46,7 @@ const MoviesContainer = ({ title, moviesType, searchKey }) => {
     <div className="container-movies">
       <p className="movies-container-title">{title}</p>
       <Swiper
-        slidesPerView={6}
+        slidesPerView={7}
         spaceBetween={0}
         grabCursor={true}
         navigation={true}

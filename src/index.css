@@ -3,6 +3,10 @@
   padding: 0;
 }
 
+:root {
+  --details-color-1: #007aff;
+}
+
 /* CSS Body */
 body {
   background-color: #171718;
@@ -99,14 +103,14 @@ body {
 
 .home-button:hover {
   transition: 0.2s;
-  color: rgb(253, 95, 95);
-  border: 3px solid rgb(253, 95, 95);
+  color: var(--details-color-1);
+  border: 3px solid var(--details-color-1);
 }
 
 /* CSS Movies Container */
 
 .container-movies {
-  margin: 2rem 2rem;
+  margin: 1rem 2rem;
 }
 
 .swiper-pagination {
@@ -115,13 +119,15 @@ body {
 
 .movies-container-title {
   font-size: 20px;
+  font-weight: 600;
+  margin: 1rem 0 1rem 0;
 }
 
 /* CSS Movie card */
 .container-movie-card {
   height: auto;
   width: auto;
-  margin: 1rem 1rem 1rem 1rem;
+  margin: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -135,6 +141,17 @@ body {
   transition: 0.3s;
 }
 
+.title-movie-card {
+  font-weight: 300;
+  margin: 5px 0 0 0;
+  transition: 0.3s;
+}
+
+.container-movie-card:hover .title-movie-card {
+  color: var(--details-color-1);
+  transition: 0.3s;
+}
+
 .img-movie-container {
   cursor: pointer;
   height: 17.5rem;
@@ -145,6 +162,12 @@ body {
   height: 100%;
   width: 100%;
   border-radius: 10px;
+  border: 1px solid transparent;
+}
+
+.container-movie-card:hover .img-movie {
+  transition: 0.3s;
+  border: 1px solid var(--details-color-1);
 }
 
 a {
@@ -188,7 +211,7 @@ a {
 .search-movies-input {
   all: unset;
   color: aliceblue;
-  border: 1px #007aff solid;
+  border: 1px var(--details-color-1) solid;
   border-radius: 10px 0 0 10px;
   padding: 8px;
   cursor: pointer;
@@ -197,7 +220,7 @@ a {
 .search-movies-button {
   all: unset;
   color: aliceblue;
-  border: 1px #007aff solid;
+  border: 1px var(--details-color-1) solid;
   border-radius: 0 10px 10px 0;
   padding: 8px;
   cursor: pointer;
