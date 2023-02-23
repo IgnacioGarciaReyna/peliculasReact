@@ -111,6 +111,16 @@ body {
 
 /* M */
 @media (max-width: 960px) {
+  .movie-background-container{
+    height: 80vh;
+  }
+
+  .home-movie-title {
+    font-size: 36px;
+    margin: 0.5rem 0;
+  }
+
+
   .home-poster-overview-container {
     margin: 0;
     align-items: start;
@@ -118,12 +128,27 @@ body {
 
   .home-overview-button-container {
     width: 45vw;
+    margin: 1rem;
   }
 
   .home-overview {
-    font-size: 22px;
+    font-size: 16px;
     font-weight: 300;
-    margin: 2rem 0 2rem 0;
+    margin: 0rem 0 1rem 0;
+  }
+
+  .home-img-stars-container {
+    margin: 1vw 6vw;
+  }
+
+  .home-movie-poster {
+    height: 16rem;
+    width: auto;
+    border-radius: 10px;
+  }
+
+  .home-button {
+    padding: 5px 12px;
   }
 }
 
