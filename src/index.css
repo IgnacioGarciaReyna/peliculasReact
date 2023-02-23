@@ -361,13 +361,16 @@ a {
 @media (max-width: 960px) {
   .page-title {
     margin: 0 0 0 1rem;
-    cursor: pointer;
     font-size: large;
   }
 }
 
 /* S */
 @media (max-width: 600px) {
+  .page-title {
+    margin: 0 0 0 0.3rem;
+    font-size: small;
+  }
 }
 
 /* XS */
@@ -419,6 +422,16 @@ a {
 
 /* S */
 @media (max-width: 600px) {
+  .search-movies-container {
+    font-size: 12px;
+    margin: 0 0.5rem 0 0;
+  }
+
+  .searcher-item {
+    color: aliceblue;
+    border: 1px var(--details-color-1) solid;
+    padding: 4px;
+  }
 }
 
 /* XS */
