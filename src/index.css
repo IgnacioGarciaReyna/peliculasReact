@@ -359,6 +359,11 @@ a {
 
 /* M */
 @media (max-width: 960px) {
+  .page-title {
+    margin: 0 0 0 1rem;
+    cursor: pointer;
+    font-size: large;
+  }
 }
 
 /* S */
