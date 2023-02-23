@@ -7,13 +7,13 @@ const Search = () => {
   return (
     <form className="search-movies-container">
       <input
-        className="search-movies-input"
+        className="search-movies-input searcher-item"
         type="text"
         placeholder="Search movies..."
         onChange={(e) => setSearchKey(e.target.value)}
       />
       <Link to={`/search/${searchKey}`}>
-        <button className="search-movies-button">Search</button>
+        <button className="search-movies-button searcher-item">Search</button>
       </Link>
     </form>
   );

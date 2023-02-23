@@ -166,8 +166,7 @@ body {
     margin: 0.5rem 0rem 0 1rem;
   }
 
-
-  .home-movie-release-date{
+  .home-movie-release-date {
     margin: 0.5rem 0rem 0 1rem;
   }
 
@@ -208,7 +207,7 @@ body {
     border-radius: 10px;
   }
 
-  .home-button-container{
+  .home-button-container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -383,24 +382,34 @@ a {
 
 .search-movies-input {
   all: unset;
-  color: aliceblue;
-  border: 1px var(--details-color-1) solid;
   border-radius: 10px 0 0 10px;
-  padding: 8px;
-  cursor: pointer;
 }
 
 .search-movies-button {
   all: unset;
+  border-radius: 0 10px 10px 0;
+}
+
+.searcher-item {
   color: aliceblue;
   border: 1px var(--details-color-1) solid;
-  border-radius: 0 10px 10px 0;
   padding: 8px;
   cursor: pointer;
 }
 
 /* M */
 @media (max-width: 960px) {
+  .search-movies-container {
+    font-size: 14px;
+    margin: 0 1rem 0 0;
+  }
+
+  .searcher-item {
+    color: aliceblue;
+    border: 1px var(--details-color-1) solid;
+    padding: 6px;
+    cursor: pointer;
+  }
 }
 
 /* S */
