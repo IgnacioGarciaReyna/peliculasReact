@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import MovieCard from "./MovieCard";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { useRef } from "react";
 
 // Import Swiper styles
 import "swiper/css";
@@ -13,8 +14,29 @@ import axios from "axios";
 const MoviesContainer = ({ title, moviesType, searchKey }) => {
   const [movies, setMovies] = useState([]);
 
+  //Width y height del viewport
+  const [screenSize, setScreenSize] = useState(getCurrentDimension());
+
   const API_URL = "https://api.themoviedb.org/3";
   const API_KEY = "77ac9b9acb030fb65e067b31a773b067";
+
+  function getCurrentDimension() {
+    return {
+      width: window.innerWidth,
+      height: window.innerHeight,
+    };
+  }
+
+  useEffect(() => {
+    const updateDimension = () => {
+      setScreenSize(getCurrentDimension());
+    };
+    window.addEventListener("resize", updateDimension);
+
+    return () => {
+      window.removeEventListener("resize", updateDimension);
+    };
+  }, [screenSize]);
 
   //Petición a la API
   const fetchMovies = async (type, searchKey) => {
@@ -46,7 +68,15 @@ const MoviesContainer = ({ title, moviesType, searchKey }) => {
     <div className="container-movies">
       <p className="movies-container-title">{title}</p>
       <Swiper
-        slidesPerView={7}
+        slidesPerView={
+          screenSize.width > 960
+            ? 7
+            : screenSize.width > 600
+            ? 5
+            : screenSize.width > 420
+            ? 3
+            : 2
+        }
         spaceBetween={0}
         grabCursor={true}
         navigation={true}
