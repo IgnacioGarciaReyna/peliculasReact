@@ -41,7 +41,7 @@ const MoviePage = ({ IMAGE_PATH }) => {
       >
         <div className="background-cover-container">
           <div className="movie-title-container">
-            <p>
+            <p className="movie-date">
               {movie.release_date ? movie.release_date : movie.first_air_date}
             </p>
             <p className="home-movie-title">
