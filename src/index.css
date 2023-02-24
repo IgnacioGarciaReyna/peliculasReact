@@ -57,9 +57,13 @@ body {
   flex-direction: column;
 }
 
+.movie-date {
+  margin: 0.25rem 0;
+}
+
 .home-movie-title {
   font-size: 50px;
-  margin: 0.5rem 0;
+  margin: 0.25rem 0;
 }
 
 .home-poster-overview-container {
@@ -71,7 +75,7 @@ body {
 }
 
 .home-img-stars-container {
-  margin: 02rem;
+  margin: 2rem;
 }
 
 .home-overview-button-container {
@@ -458,6 +462,7 @@ a {
 }
 
 .movie-tagline {
+  margin: 0.25rem 0;
   font-size: 30px;
   font-weight: 200;
 }

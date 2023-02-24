@@ -69,7 +69,8 @@ const Home = ({ IMAGE_PATH }) => {
               }}
             >
               <div className="background-cover-container">
-                <p className="home-movie-release-date">{movie.release_date}</p>
+                <p className="movie-date home-movie-release-date">{movie.release_date}</p> 
+                <p className="movie-date home-movie-release-date">{movie.release_date}</p>
                 <p className="home-movie-title">{movie.title} </p>
                 <Stars vote_average={movie.vote_average} />
                 <div className="home-poster-overview-container">
