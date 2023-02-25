@@ -448,6 +448,22 @@ a {
 
 /* XS */
 @media (max-width: 420px) {
+  .search-movies-container {
+    font-size: 11px;
+    margin: 0 0.25rem 0 0;
+    display: flex;
+    justify-content: end;
+  }
+
+  .searcher-item {
+    color: aliceblue;
+    border: 1px var(--details-color-1) solid;
+    padding: 3px;
+  }
+
+  .search-movies-input{
+    width: 48%;
+  }
 }
 
 /* Landscape */
