@@ -12,7 +12,7 @@ const Search = () => {
         placeholder="Search movies..."
         onChange={(e) => setSearchKey(e.target.value)}
       />
-      <Link to={`/search/${searchKey}`}>
+      <Link to={searchKey != "" ? `/search/${searchKey}` : ""}>
         <button className="search-movies-button searcher-item">Search</button>
       </Link>
     </form>
