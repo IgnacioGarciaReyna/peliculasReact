@@ -296,7 +296,6 @@ body {
 
 .img-movie-container {
   cursor: pointer;
-
   width: 13vw;
 }
 
@@ -325,14 +324,23 @@ a {
 
 /* M */
 @media (max-width: 960px) {
+  .img-movie-container {
+    width: 17vw;
+  }
 }
 
 /* S */
 @media (max-width: 600px) {
+  .img-movie-container {
+    width: 26vw;
+  }
 }
 
 /* XS */
 @media (max-width: 420px) {
+  .img-movie-container {
+    width: 38vw;
+  }
 }
 
 /* Landscape */
