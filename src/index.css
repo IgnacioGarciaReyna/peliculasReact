@@ -119,8 +119,11 @@ body {
   right: 0;
   height: 100vh;
   width: 100vw;
-  background-color: gray;
+  background-color: #171718;
   z-index: 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* M */

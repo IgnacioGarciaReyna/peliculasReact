@@ -12,6 +12,7 @@ import { Autoplay, Pagination, Navigation } from "swiper";
 import { Link } from "react-router-dom";
 import MoviesContainer from "./MoviesContainer";
 import axios from "axios";
+import { BounceLoader } from "react-spinners";
 
 const Home = ({ IMAGE_PATH }) => {
   const [movies, setMovies] = useState([]);
@@ -48,7 +49,11 @@ const Home = ({ IMAGE_PATH }) => {
 
   return (
     <div className="home-container">
-      {spinner ? <div className="spinner-container"></div> : null}
+      {spinner ? (
+        <div className="spinner-container">
+          <BounceLoader color="#007aff" />
+        </div>
+      ) : null}
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
