@@ -15,6 +15,7 @@ import axios from "axios";
 
 const Home = ({ IMAGE_PATH }) => {
   const [movies, setMovies] = useState([]);
+  const [spinner, setSipinner] = useState(true);
 
   const API_URL = "https://api.themoviedb.org/3";
   const API_KEY = "77ac9b9acb030fb65e067b31a773b067";
@@ -38,6 +39,7 @@ const Home = ({ IMAGE_PATH }) => {
     });
 
     setMovies(results);
+    setSipinner(false);
   };
 
   useEffect(() => {
@@ -46,6 +48,7 @@ const Home = ({ IMAGE_PATH }) => {
 
   return (
     <div className="home-container">
+      {spinner ? <div className="spinner-container"></div> : null}
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
@@ -69,7 +72,9 @@ const Home = ({ IMAGE_PATH }) => {
               }}
             >
               <div className="background-cover-container">
-                <p className="movie-date home-movie-release-date">{movie.release_date}</p>
+                <p className="movie-date home-movie-release-date">
+                  {movie.release_date}
+                </p>
                 <p className="home-movie-title">{movie.title} </p>
                 <Stars vote_average={movie.vote_average} />
                 <div className="home-poster-overview-container">

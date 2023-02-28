@@ -113,6 +113,16 @@ body {
   border: 3px solid var(--details-color-1);
 }
 
+.spinner-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: gray;
+  z-index: 9;
+}
+
 /* M */
 @media (max-width: 960px) {
   .movie-background-container {
@@ -461,7 +471,7 @@ a {
     padding: 3px;
   }
 
-  .search-movies-input{
+  .search-movies-input {
     width: 48%;
   }
 }
