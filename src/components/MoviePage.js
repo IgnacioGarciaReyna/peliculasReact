@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { BounceLoader } from "react-spinners";
 import Cast from "./Cast";
 import Genres from "./Genres";
 import MoviesContainer from "./MoviesContainer";
@@ -12,7 +13,7 @@ const MoviePage = ({ IMAGE_PATH }) => {
   const API_KEY = "77ac9b9acb030fb65e067b31a773b067";
   //Variables de estado
   const [movie, setMovie] = useState({ title: "Loading Movies" });
-
+  const [spinner, setSipinner] = useState(true);
   const { category, id } = useParams();
 
   //Petición de un solo objeto para mostrar en reproductor de video
@@ -24,6 +25,7 @@ const MoviePage = ({ IMAGE_PATH }) => {
     });
 
     setMovie(data);
+    setSipinner(false);
   };
 
   useEffect(() => {
@@ -33,6 +35,11 @@ const MoviePage = ({ IMAGE_PATH }) => {
   // console.log(movie);
   return (
     <div className="home-container">
+      {spinner ? (
+        <div className="spinner-container">
+          <BounceLoader color="#007aff" />
+        </div>
+      ) : null}
       <div
         className="movie-page-container"
         style={{
