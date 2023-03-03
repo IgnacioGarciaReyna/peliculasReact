@@ -605,10 +605,39 @@ a {
 
 /* M */
 @media (max-width: 960px) {
+  .cast-component-container {
+    flex-direction: column;
+  }
+
+  .cast-section {
+    margin: 1rem 0.2rem;
+  }
+
+  .cast-container {
+    width: auto;
+  }
 }
 
 /* S */
 @media (max-width: 600px) {
+ 
+
+  .cast-card {
+    width: 90px;
+    height: auto;
+    margin: 5px 5px;
+  }
+
+  .cast-img-container {
+    height: 90px;
+    width: auto;
+  }
+
+  .cast-img {
+    border-radius: 10px;
+    height: 100%;
+    width: 100%;
+  }
 }
 
 /* XS */
