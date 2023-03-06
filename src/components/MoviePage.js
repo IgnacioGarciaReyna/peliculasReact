@@ -19,11 +19,12 @@ const MoviePage = ({ IMAGE_PATH }) => {
   const API_KEY = "77ac9b9acb030fb65e067b31a773b067";
   //Variables de estado
   const [movie, setMovie] = useState({ title: "Loading Movies" });
-  const [spinner, setSipinner] = useState(true);
+  const [spinner, setSpinner] = useState(true);
   const { category, id } = useParams();
 
   //Petición de un solo objeto para mostrar en reproductor de video
   const fetchMovie = async (category, id) => {
+    setSpinner(true);
     const { data } = await axios.get(`${API_URL}/${category}/${id}`, {
       params: {
         api_key: API_KEY,
@@ -31,7 +32,7 @@ const MoviePage = ({ IMAGE_PATH }) => {
     });
 
     setMovie(data);
-    setSipinner(false);
+    setTimeout(() => setSpinner(false), 800);
   };
 
   useEffect(() => {

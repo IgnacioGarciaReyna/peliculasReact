@@ -21,7 +21,7 @@ AOS.init();
 
 const Home = ({ IMAGE_PATH }) => {
   const [movies, setMovies] = useState([]);
-  const [spinner, setSipinner] = useState(true);
+  const [spinner, setSpinner] = useState(true);
 
   const API_URL = "https://api.themoviedb.org/3";
   const API_KEY = "77ac9b9acb030fb65e067b31a773b067";
@@ -45,7 +45,7 @@ const Home = ({ IMAGE_PATH }) => {
     });
 
     setMovies(results);
-    setSipinner(false);
+    setSpinner(false);
   };
 
   useEffect(() => {
