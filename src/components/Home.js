@@ -16,6 +16,7 @@ import { BounceLoader } from "react-spinners";
 //Aos imports
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Footer from "./Footer";
 AOS.init();
 
 const Home = ({ IMAGE_PATH }) => {
@@ -139,6 +140,7 @@ const Home = ({ IMAGE_PATH }) => {
         moviesType={topRatedTvType}
         searchKey={""}
       />
+      <Footer />
     </div>
   );
 };

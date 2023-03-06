@@ -72,7 +72,6 @@ const MoviesContainer = ({ title, moviesType, searchKey }) => {
     <div
       className="container-movies"
       data-aos="fade-right"
-      data-aos-anchor-placement="top-center"
     >
       <p className="movies-container-title">{title}</p>
       <Swiper

@@ -10,9 +10,9 @@ import Trailer from "./Trailer";
 //AOS Animations
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Footer from "./Footer";
 
 AOS.init();
-
 
 const MoviePage = ({ IMAGE_PATH }) => {
   const API_URL = "https://api.themoviedb.org/3";
@@ -60,7 +60,9 @@ const MoviePage = ({ IMAGE_PATH }) => {
             <p className="home-movie-title" data-aos="zoom-in">
               {category === "movie" ? movie.title : movie.name}
             </p>
-            <p className="movie-tagline" data-aos="zoom-in">{movie.tagline}</p>
+            <p className="movie-tagline" data-aos="zoom-in">
+              {movie.tagline}
+            </p>
             <Stars vote_average={movie.vote_average} />
             <Genres genres={movie.genres} />
           </div>
@@ -78,7 +80,9 @@ const MoviePage = ({ IMAGE_PATH }) => {
             </div>
           ) : null} */}
           <div className="movie-overview-container">
-            <p className="movie-overview" data-aos="zoom-in">{movie.overview}</p>
+            <p className="movie-overview" data-aos="zoom-in">
+              {movie.overview}
+            </p>
           </div>
           <div className="trailer-container">
             <Trailer category={category} id={id} />
@@ -113,6 +117,7 @@ const MoviePage = ({ IMAGE_PATH }) => {
         moviesType={`/${category}/${id}/recommendations`}
         searchKey={""}
       />
+      <Footer />
     </div>
   );
 };

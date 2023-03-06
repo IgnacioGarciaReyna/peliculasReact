@@ -18,7 +18,6 @@ function App() {
             <div>
               <Nav />
               <SearchResults />
-              <Footer />
             </div>
           }
         />
@@ -28,7 +27,6 @@ function App() {
             <div>
               <Nav />
               <MoviePage IMAGE_PATH={IMAGE_PATH} />
-              <Footer />
             </div>
           }
         />
@@ -38,7 +36,6 @@ function App() {
             <div>
               <Nav />
               <Home IMAGE_PATH={IMAGE_PATH} />
-              <Footer />
             </div>
           }
         />

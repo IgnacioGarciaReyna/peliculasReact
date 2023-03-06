@@ -20,24 +20,25 @@ body {
 /* CSS Home */
 
 .home-container {
-  height: auto;
+  height: 90vh;
   width: 100%;
   margin: 3rem 0 0 0;
 }
 
 .home-movie-container {
-  height: auto;
+  height: 100%;
   border-radius: 10px;
   background-size: contain;
 }
 
 .swiper-wrapper {
-  height: auto;
+  height: 92%;
 }
 
 .movie-background-container {
   background-size: cover;
   background-repeat: no-repeat;
+  height: 98%;
 }
 
 .background-cover-container {
@@ -48,7 +49,7 @@ body {
     rgba(83, 100, 141, 0) 90%
   );
 
-  height: 100%;
+  height: 98%;
   padding: 1rem 0 0 3rem;
 }
 
@@ -620,8 +621,6 @@ a {
 
 /* S */
 @media (max-width: 600px) {
- 
-
   .cast-card {
     width: 90px;
     height: auto;

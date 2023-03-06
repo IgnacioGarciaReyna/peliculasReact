@@ -1,5 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import Footer from "./Footer";
 import MovieCard from "./MovieCard";
 import MoviesContainer from "./MoviesContainer";
 
@@ -22,6 +23,7 @@ const SearchResults = ({}) => {
         moviesType={searchSeriesType}
         searchKey={key}
       />
+      <Footer />
     </div>
   );
 };
