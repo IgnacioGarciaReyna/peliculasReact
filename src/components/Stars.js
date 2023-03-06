@@ -26,7 +26,7 @@ const Stars = ({ vote_average }) => {
   }
 
   return (
-    <div className="stars-container">
+    <div className="stars-container" data-aos="zoom-in">
       {stars.map((star) => (
         <div key={star.id}>{star.element}</div>
       ))}
