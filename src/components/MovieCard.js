@@ -22,6 +22,7 @@ const MovieCard = ({ movie }) => {
       >
         <div className="img-movie-container">
           <img
+            data-aos="flip-right"
             className="img-movie"
             src={
               movie.poster_path

@@ -33,18 +33,15 @@ const Trailer = ({ category, id }) => {
     <Fragment>
       {trailer ? (
         <Fragment>
-          <div data-aos="zoom-in">
-            <YouTube
-              data-aos="zoom-in"
-              videoId={trailer.key}
-              className="trailer-reproductor"
-              containerClassName={"youtube-container"}
-              opts={{
-                width: "600px",
-                height: "100%",
-              }}
-            />
-          </div>
+          <YouTube
+            videoId={trailer.key}
+            className="trailer-reproductor"
+            containerClassName={"youtube-container"}
+            opts={{
+              width: "600px",
+              height: "100%",
+            }}
+          />
         </Fragment>
       ) : null}
     </Fragment>
