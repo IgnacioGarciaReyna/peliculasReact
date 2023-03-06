@@ -1,6 +1,12 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import emptyPicture from "./../assets/img/blank-profile-picture.png";
+//AOS Animations
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+AOS.init();
+
 
 const Cast = ({ category, id, API_URL, API_KEY }) => {
   const [cast, setCast] = useState({});

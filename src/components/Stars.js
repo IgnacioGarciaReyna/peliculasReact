@@ -1,5 +1,10 @@
 import React, { useState } from "react";
 import { BsStarFill, BsStarHalf, BsStar } from "react-icons/bs";
+//AOS Animations
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+AOS.init();
 
 const Stars = ({ vote_average }) => {
   const stars = [];

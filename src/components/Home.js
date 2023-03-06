@@ -14,8 +14,9 @@ import MoviesContainer from "./MoviesContainer";
 import axios from "axios";
 import { BounceLoader } from "react-spinners";
 //Aos imports
-import AOS from 'aos';
-import 'aos/dist/aos.css'
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 
 const Home = ({ IMAGE_PATH }) => {
   const [movies, setMovies] = useState([]);
@@ -48,7 +49,6 @@ const Home = ({ IMAGE_PATH }) => {
 
   useEffect(() => {
     fetchMovies(upcomingMoviesType);
-    AOS.init();
   }, []);
 
   return (
@@ -80,25 +80,35 @@ const Home = ({ IMAGE_PATH }) => {
                 backgroundImage: `url("${IMAGE_PATH}${movie.backdrop_path}")`,
               }}
             >
-              <div className="background-cover-container" >
-                <p className="movie-date home-movie-release-date" data-aos="zoom-in">
+              <div className="background-cover-container">
+                <p
+                  className="movie-date home-movie-release-date"
+                  data-aos="zoom-in"
+                >
                   {movie.release_date}
                 </p>
-                <p className="home-movie-title" data-aos="zoom-in">{movie.title} </p>
-                <Stars vote_average={movie.vote_average}/>
-                <div className="home-poster-overview-container" data-aos="zoom-in">
+                <p className="home-movie-title" data-aos="zoom-in">
+                  {movie.title}{" "}
+                </p>
+                <Stars vote_average={movie.vote_average} />
+                <div className="home-poster-overview-container">
                   <div className="home-img-stars-container">
                     <img
+                      data-aos="zoom-in"
                       className="home-movie-poster"
                       src={`${IMAGE_PATH}${movie.poster_path}`}
                       alt=""
                     />
                   </div>
                   <div className="home-overview-button-container">
-                    <p className="home-overview">{movie.overview}</p>
+                    <p className="home-overview" data-aos="zoom-in">
+                      {movie.overview}
+                    </p>
                     <div className="home-button-container">
                       <Link to={`/movie/${movie.id}`}>
-                        <button className="home-button">Go to details</button>
+                        <button className="home-button" data-aos="zoom-in">
+                          Go to details
+                        </button>
                       </Link>
                     </div>
                   </div>

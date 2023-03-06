@@ -1,9 +1,6 @@
 import axios from "axios";
 import React, { Fragment, useEffect, useState } from "react";
 import YouTube from "react-youtube";
-//Aos imports
-import AOS from "aos";
-import "aos/dist/aos.css";
 
 const Trailer = ({ category, id }) => {
   const [trailer, setTrailer] = useState(null);
@@ -23,7 +20,6 @@ const Trailer = ({ category, id }) => {
       (video) => video.name === "Official Trailer" || video.type === "Trailer"
     );
     setTrailer(trailerData ? trailerData : data.results[0]);
-    AOS.init();
   };
 
   useEffect(() => {

@@ -1,15 +1,12 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import emptyPoster from "./../assets/img/istock-photo.jpg";
-//Aos imports
-import AOS from "aos";
-import "aos/dist/aos.css";
+
 
 const MovieCard = ({ movie }) => {
   const URL_IMAGE = "https://image.tmdb.org/t/p/original";
-  useEffect(() => {
-    AOS.init();
-  }, []);
+
+
   return (
     <Link
       to={movie.title ? `/movie/${movie.id}` : `/tv/${movie.id}`}
@@ -18,11 +15,9 @@ const MovieCard = ({ movie }) => {
       <div
         className="container-movie-card"
         key={movie.id}
-        data-aos="flip-right"
       >
         <div className="img-movie-container">
           <img
-            data-aos="flip-right"
             className="img-movie"
             src={
               movie.poster_path

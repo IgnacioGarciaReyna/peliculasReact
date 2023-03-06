@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import MovieCard from "./MovieCard";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { useRef } from "react";
 
 // Import Swiper styles
 import "swiper/css";
@@ -10,6 +9,11 @@ import "swiper/css/pagination";
 // import required modules
 import { Navigation, Pagination } from "swiper";
 import axios from "axios";
+//AOS Animations
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+AOS.init();
 
 const MoviesContainer = ({ title, moviesType, searchKey }) => {
   const [movies, setMovies] = useState([]);
@@ -68,6 +72,8 @@ const MoviesContainer = ({ title, moviesType, searchKey }) => {
     <div className="container-movies">
       <p className="movies-container-title">{title}</p>
       <Swiper
+        data-aos="fade-up"
+        data-aos-anchor-placement="center-bottom"
         slidesPerView={
           screenSize.width > 960
             ? 7
