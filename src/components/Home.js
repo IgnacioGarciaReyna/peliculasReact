@@ -13,6 +13,9 @@ import { Link } from "react-router-dom";
 import MoviesContainer from "./MoviesContainer";
 import axios from "axios";
 import { BounceLoader } from "react-spinners";
+//Aos imports
+import AOS from 'aos';
+import 'aos/dist/aos.css'
 
 const Home = ({ IMAGE_PATH }) => {
   const [movies, setMovies] = useState([]);
@@ -45,6 +48,7 @@ const Home = ({ IMAGE_PATH }) => {
 
   useEffect(() => {
     fetchMovies(upcomingMoviesType);
+    AOS.init();
   }, []);
 
   return (
@@ -76,13 +80,13 @@ const Home = ({ IMAGE_PATH }) => {
                 backgroundImage: `url("${IMAGE_PATH}${movie.backdrop_path}")`,
               }}
             >
-              <div className="background-cover-container">
-                <p className="movie-date home-movie-release-date">
+              <div className="background-cover-container" >
+                <p className="movie-date home-movie-release-date" data-aos="zoom-in">
                   {movie.release_date}
                 </p>
-                <p className="home-movie-title">{movie.title} </p>
-                <Stars vote_average={movie.vote_average} />
-                <div className="home-poster-overview-container">
+                <p className="home-movie-title" data-aos="zoom-in">{movie.title} </p>
+                <Stars vote_average={movie.vote_average}/>
+                <div className="home-poster-overview-container" data-aos="zoom-in">
                   <div className="home-img-stars-container">
                     <img
                       className="home-movie-poster"
