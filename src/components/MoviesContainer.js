@@ -69,11 +69,13 @@ const MoviesContainer = ({ title, moviesType, searchKey }) => {
   }, [moviesType]);
 
   return (
-    <div className="container-movies">
+    <div
+      className="container-movies"
+      data-aos="fade-right"
+      data-aos-anchor-placement="top-center"
+    >
       <p className="movies-container-title">{title}</p>
       <Swiper
-        data-aos="fade-up"
-        data-aos-anchor-placement="center-bottom"
         slidesPerView={
           screenSize.width > 960
             ? 7
