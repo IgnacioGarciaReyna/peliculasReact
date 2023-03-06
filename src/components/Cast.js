@@ -61,7 +61,11 @@ const Cast = ({ category, id, API_URL, API_KEY }) => {
         <div className="cast-container">
           {cast[0]
             ? cast.map((actor) => (
-                <div className="cast-card" key={actor.id + actor.character}>
+                <div
+                  className="cast-card"
+                  key={actor.id + actor.character}
+                  data-aos="zoom-in"
+                >
                   <div className="cast-img-container">
                     <img
                       className="cast-img"
@@ -86,7 +90,11 @@ const Cast = ({ category, id, API_URL, API_KEY }) => {
           {crew[0]
             ? crew.map((worker) =>
                 worker.profile_path ? (
-                  <div className="cast-card" key={worker.id + worker.name}>
+                  <div
+                    className="cast-card"
+                    key={worker.id + worker.name}
+                    data-aos="zoom-in"
+                  >
                     <div className="cast-img-container">
                       <img
                         className="cast-img"
